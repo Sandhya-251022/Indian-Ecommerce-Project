@@ -209,45 +209,38 @@ selected_statuses = st.sidebar.multiselect(
     default=statuses
 )
 
-st.sidebar.markdown("### 📅 Date Range")
-
-# Two separate date boxes so the complete date is always visible.
-start_date = st.sidebar.date_input(
-    "Start date",
-    value=dataset_start,
-    min_value=dataset_start,
-    max_value=dataset_end,
-    format="DD/MM/YYYY"
-)
-
-end_date = st.sidebar.date_input(
-    "End date",
-    value=dataset_end,
-    min_value=dataset_start,
-    max_value=dataset_end,
-    format="DD/MM/YYYY"
-)
-
-if start_date > end_date:
-    st.sidebar.error("Start date must be before end date.")
-    st.stop()
-
 st.sidebar.markdown(
     f"""
     <div style="
-        background:#F3E8FF;
-        color:#581C87;
-        padding:10px;
-        border-radius:10px;
-        margin-top:8px;
-        font-size:0.82rem;">
-        <b>Dataset period</b><br>
-        {dataset_start.strftime("%d %B %Y")} → {dataset_end.strftime("%d %B %Y")}
+        background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+        color: white;
+        padding: 14px;
+        border-radius: 12px;
+        margin-top: 10px;
+        font-size: 0.85rem;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.20);
+    ">
+        <div style="
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        ">
+            📊 Dataset Period
+        </div>
+
+        <div style="
+            color: #FFFFFF;
+            font-weight: 500;
+            line-height: 1.6;
+        ">
+            {dataset_start.strftime("%d %B %Y")}
+            &nbsp; → &nbsp;
+            {dataset_end.strftime("%d %B %Y")}
+        </div>
     </div>
     """,
     unsafe_allow_html=True
 )
-
 # =========================================================
 # FILTER
 # =========================================================
