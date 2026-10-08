@@ -3,99 +3,271 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
-st.set_page_config(page_title="Indian E-Commerce Sales Dashboard", page_icon="🛒", layout="wide")
+st.set_page_config(
+    page_title="Indian E-Commerce Sales Dashboard",
+    page_icon="🛒",
+    layout="wide"
+)
 
-# =========================
-# BACKGROUND / UI STYLING
-# =========================
+# =========================================================
+# DASHBOARD BACKGROUND & DESIGN
+# =========================================================
 st.markdown("""
 <style>
-/* Main background */
-.stApp {
-    background: linear-gradient(135deg, #eef2f7 0%, #dfe9f3 100%);
+
+/* =====================================================
+   MAIN DASHBOARD BACKGROUND
+   ===================================================== */
+
+html, body, [data-testid="stAppViewContainer"] {
+    background: linear-gradient(
+        135deg,
+        #071A2B 0%,
+        #0B2D4D 45%,
+        #123E63 100%
+    ) !important;
 }
 
-/* Main content area */
-.main .block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+[data-testid="stAppViewContainer"] {
+    background: linear-gradient(
+        135deg,
+        #071A2B 0%,
+        #0B2D4D 45%,
+        #123E63 100%
+    ) !important;
 }
 
-/* Dashboard title */
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* Main content */
+.main {
+    background: transparent !important;
+}
+
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
 h1 {
-    color: #16324F;
-    font-weight: 800;
+    color: #FFFFFF !important;
+    font-weight: 800 !important;
+    font-size: 42px !important;
 }
 
-/* Section headings */
 h2, h3 {
-    color: #234E70;
+    color: #FFFFFF !important;
 }
 
-/* Sidebar */
+.stCaption {
+    color: #D5E5F5 !important;
+}
+
+
+/* =====================================================
+   NORMAL TEXT
+   ===================================================== */
+
+.stMarkdown,
+.stText,
+p,
+label {
+    color: #EAF4FF;
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
 section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #16324F 0%, #234E70 100%);
+    background: linear-gradient(
+        180deg,
+        #061522 0%,
+        #0A2740 50%,
+        #0D3557 100%
+    ) !important;
 }
 
-section[data-testid="stSidebar"] * {
-    color: white !important;
+section[data-testid="stSidebar"] > div {
+    background: transparent !important;
 }
 
-/* Metric cards */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] p {
+    color: #FFFFFF !important;
+}
+
+
+/* =====================================================
+   SIDEBAR SELECT BOXES
+   ===================================================== */
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
+    background-color: #FFFFFF !important;
+    color: #111111 !important;
+    border-radius: 8px !important;
+}
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] span {
+    color: #111111 !important;
+}
+
+
+/* =====================================================
+   DATE INPUT
+   ===================================================== */
+
+section[data-testid="stSidebar"] div[data-baseweb="input"] {
+    background-color: #FFFFFF !important;
+    border-radius: 10px !important;
+}
+
+section[data-testid="stSidebar"] div[data-baseweb="input"] input {
+    color: #111111 !important;
+    background-color: #FFFFFF !important;
+}
+
+section[data-testid="stSidebar"] div[data-baseweb="input"] input::placeholder {
+    color: #555555 !important;
+}
+
+section[data-testid="stSidebar"] div[data-baseweb="input"] svg {
+    fill: #222222 !important;
+}
+
+
+/* =====================================================
+   METRIC CARDS
+   ===================================================== */
+
 div[data-testid="metric-container"] {
-    background: rgba(255, 255, 255, 0.90);
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid #d9e2ec;
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    padding: 18px !important;
+    border: 1px solid #D9E8F5 !important;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Dataframe */
-div[data-testid="stDataFrame"] {
-    background: white;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.06);
+div[data-testid="metric-container"] label {
+    color: #234E70 !important;
+    font-weight: 600 !important;
 }
 
-/* Info boxes */
-div[data-testid="stAlert"] {
-    border-radius: 12px;
+div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    color: #0B2D4D !important;
+    font-weight: 700 !important;
 }
 
-/* Multiselect and date input */
-div[data-baseweb="select"] > div,
-div[data-baseweb="input"] > div {
-    border-radius: 8px;
+div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
+    color: #234E70 !important;
 }
 
-/* Plotly chart containers */
+
+/* =====================================================
+   CHART CARDS
+   ===================================================== */
+
 div[data-testid="stPlotlyChart"] {
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 15px;
-    padding: 8px;
-    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.05);
+    background: #FFFFFF !important;
+    border-radius: 18px !important;
+    padding: 10px !important;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid #D9E8F5 !important;
 }
 
-/* Footer caption */
+
+/* =====================================================
+   DATAFRAME
+   ===================================================== */
+
+div[data-testid="stDataFrame"] {
+    background: #FFFFFF !important;
+    border-radius: 15px !important;
+    padding: 8px !important;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+
+div[data-testid="stAlert"] {
+    border-radius: 12px !important;
+}
+
+
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
+hr {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
+button {
+    border-radius: 8px !important;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
 footer {
     visibility: hidden;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
 
+# =========================================================
+# LOAD DATA
+# =========================================================
+
 @st.cache_data
 def load_data():
-    data = pd.read_csv(Path(__file__).parent / "Indian_Ecommerce_Sales_Analysis_Dataset.csv")
+    data = pd.read_csv(
+        Path(__file__).parent / "Indian_Ecommerce_Sales_Analysis_Dataset.csv"
+    )
     data["Order_Date"] = pd.to_datetime(data["Order_Date"])
     return data
 
 
 df = load_data()
 
+
+# =========================================================
+# TITLE
+# =========================================================
+
 st.title("🛒 Indian E-Commerce Sales & Profit Dashboard")
-st.caption("Interactive analysis of sales, profit, products, customers and regional performance")
+
+st.caption(
+    "Interactive analysis of sales, profit, products, customers and regional performance"
+)
+
+
+# =========================================================
+# SIDEBAR FILTERS
+# =========================================================
 
 st.sidebar.header("🔎 Dashboard Filters")
 
@@ -117,6 +289,7 @@ selected_statuses = st.sidebar.multiselect(
     default=sorted(df["Order_Status"].unique())
 )
 
+
 min_date = df["Order_Date"].min().date()
 max_date = df["Order_Date"].max().date()
 
@@ -133,6 +306,11 @@ start_date, end_date = (
     else (min_date, max_date)
 )
 
+
+# =========================================================
+# FILTER DATA
+# =========================================================
+
 filtered = df[
     df["State"].isin(selected_states)
     & df["Category"].isin(selected_categories)
@@ -141,28 +319,67 @@ filtered = df[
     & (df["Order_Date"].dt.date <= end_date)
 ].copy()
 
+
+# =========================================================
+# KPI CALCULATIONS
+# =========================================================
+
 total_sales = filtered["Sales_INR"].sum()
 total_profit = filtered["Profit_INR"].sum()
 total_orders = filtered["Order_ID"].nunique()
 total_quantity = filtered["Quantity"].sum()
 
 avg_order_value = total_sales / total_orders if total_orders else 0
-profit_margin = total_profit / total_sales * 100 if total_sales else 0
 
+profit_margin = (
+    total_profit / total_sales * 100
+    if total_sales
+    else 0
+)
+
+
+# =========================================================
+# KPI CARDS
+# =========================================================
 
 c1, c2, c3, c4, c5 = st.columns(5)
 
-c1.metric("Total Sales", f"₹{total_sales:,.0f}")
-c2.metric("Total Profit", f"₹{total_profit:,.0f}")
-c3.metric("Total Orders", f"{total_orders:,}")
-c4.metric("Quantity Sold", f"{total_quantity:,}")
-c5.metric("Profit Margin", f"{profit_margin:.2f}%")
+c1.metric(
+    "Total Sales",
+    f"₹{total_sales:,.0f}"
+)
+
+c2.metric(
+    "Total Profit",
+    f"₹{total_profit:,.0f}"
+)
+
+c3.metric(
+    "Total Orders",
+    f"{total_orders:,}"
+)
+
+c4.metric(
+    "Quantity Sold",
+    f"{total_quantity:,}"
+)
+
+c5.metric(
+    "Profit Margin",
+    f"{profit_margin:.2f}%"
+)
+
 
 st.divider()
 
 
+# =========================================================
+# MONTHLY SALES
+# =========================================================
+
 monthly = (
-    filtered.groupby(filtered["Order_Date"].dt.to_period("M"))["Sales_INR"]
+    filtered
+    .groupby(filtered["Order_Date"].dt.to_period("M"))["Sales_INR"]
     .sum()
     .reset_index()
 )
@@ -178,8 +395,13 @@ fig_month = px.line(
 )
 
 
+# =========================================================
+# CATEGORY SALES
+# =========================================================
+
 category_sales = (
-    filtered.groupby("Category", as_index=False)["Sales_INR"]
+    filtered
+    .groupby("Category", as_index=False)["Sales_INR"]
     .sum()
     .sort_values("Sales_INR", ascending=False)
 )
@@ -193,17 +415,32 @@ fig_category = px.bar(
 )
 
 
+# =========================================================
+# FIRST CHART ROW
+# =========================================================
+
 left, right = st.columns(2)
 
 with left:
-    st.plotly_chart(fig_month, use_container_width=True)
+    st.plotly_chart(
+        fig_month,
+        use_container_width=True
+    )
 
 with right:
-    st.plotly_chart(fig_category, use_container_width=True)
+    st.plotly_chart(
+        fig_category,
+        use_container_width=True
+    )
 
+
+# =========================================================
+# STATE SALES
+# =========================================================
 
 state_sales = (
-    filtered.groupby("State", as_index=False)
+    filtered
+    .groupby("State", as_index=False)
     .agg(
         Sales_INR=("Sales_INR", "sum"),
         Profit_INR=("Profit_INR", "sum")
@@ -225,8 +462,13 @@ fig_state.update_layout(
 )
 
 
+# =========================================================
+# CATEGORY PROFIT
+# =========================================================
+
 category_profit = (
-    filtered.groupby("Category", as_index=False)["Profit_INR"]
+    filtered
+    .groupby("Category", as_index=False)["Profit_INR"]
     .sum()
     .sort_values("Profit_INR", ascending=False)
 )
@@ -240,25 +482,57 @@ fig_profit = px.bar(
 )
 
 
+# =========================================================
+# SECOND CHART ROW
+# =========================================================
+
 left, right = st.columns(2)
 
 with left:
-    st.plotly_chart(fig_state, use_container_width=True)
+    st.plotly_chart(
+        fig_state,
+        use_container_width=True
+    )
 
 with right:
-    st.plotly_chart(fig_profit, use_container_width=True)
+    st.plotly_chart(
+        fig_profit,
+        use_container_width=True
+    )
 
+
+# =========================================================
+# PAYMENT MODE
+# =========================================================
 
 payment = filtered["Payment_Mode"].value_counts().reset_index()
-payment.columns = ["Payment_Mode", "Count"]
+
+payment.columns = [
+    "Payment_Mode",
+    "Count"
+]
+
+
+# =========================================================
+# ORDER STATUS
+# =========================================================
 
 status = filtered["Order_Status"].value_counts().reset_index()
-status.columns = ["Order_Status", "Count"]
 
+status.columns = [
+    "Order_Status",
+    "Count"
+]
+
+
+# =========================================================
+# PIE CHARTS
+# =========================================================
 
 left, right = st.columns(2)
 
 with left:
+
     st.plotly_chart(
         px.pie(
             payment,
@@ -271,6 +545,7 @@ with left:
     )
 
 with right:
+
     st.plotly_chart(
         px.pie(
             status,
@@ -283,27 +558,43 @@ with right:
     )
 
 
+# =========================================================
+# QUANTITY VS SALES
+# =========================================================
+
 st.plotly_chart(
     px.scatter(
         filtered,
         x="Quantity",
         y="Sales_INR",
         color="Category",
-        hover_data=["Sub_Category", "State", "Order_Status"],
+        hover_data=[
+            "Sub_Category",
+            "State",
+            "Order_Status"
+        ],
         title="📊 Quantity vs Sales"
     ),
     use_container_width=True
 )
 
 
+# =========================================================
+# TOP PRODUCTS
+# =========================================================
+
 top_products = (
-    filtered.groupby("Sub_Category", as_index=False)
+    filtered
+    .groupby("Sub_Category", as_index=False)
     .agg(
         Sales_INR=("Sales_INR", "sum"),
         Profit_INR=("Profit_INR", "sum"),
         Quantity=("Quantity", "sum")
     )
-    .sort_values("Sales_INR", ascending=False)
+    .sort_values(
+        "Sales_INR",
+        ascending=False
+    )
     .head(10)
 )
 
@@ -317,40 +608,82 @@ st.dataframe(
 )
 
 
+# =========================================================
+# KEY INSIGHTS
+# =========================================================
+
 st.subheader("💡 Key Insights")
 
 if not filtered.empty:
 
     best_category = category_sales.iloc[0]["Category"]
+
     best_state = state_sales.iloc[0]["State"]
+
     best_product = top_products.iloc[0]["Sub_Category"]
 
     delivered_pct = (
-        filtered["Order_Status"].eq("Delivered").mean()
+        filtered["Order_Status"]
+        .eq("Delivered")
+        .mean()
     ) * 100
 
     cancelled_pct = (
-        filtered["Order_Status"].eq("Cancelled").mean()
+        filtered["Order_Status"]
+        .eq("Cancelled")
+        .mean()
     ) * 100
 
 
     a, b, c, d = st.columns(4)
 
-    a.info(f"Top category: {best_category}")
-    b.info(f"Top state: {best_state}")
-    c.info(f"Top product: {best_product}")
-    d.info(f"Delivered orders: {delivered_pct:.1f}%")
+    a.info(
+        f"Top category: {best_category}"
+    )
+
+    b.info(
+        f"Top state: {best_state}"
+    )
+
+    c.info(
+        f"Top product: {best_product}"
+    )
+
+    d.info(
+        f"Delivered orders: {delivered_pct:.1f}%"
+    )
 
 
-    st.write(f"- Total sales: ₹{total_sales:,.0f}")
-    st.write(f"- Total profit: ₹{total_profit:,.0f}")
-    st.write(f"- Average order value: ₹{avg_order_value:,.0f}")
-    st.write(f"- Overall profit margin: {profit_margin:.2f}%")
-    st.write(f"- Cancelled orders: {cancelled_pct:.1f}%")
+    st.write(
+        f"- Total sales: ₹{total_sales:,.0f}"
+    )
+
+    st.write(
+        f"- Total profit: ₹{total_profit:,.0f}"
+    )
+
+    st.write(
+        f"- Average order value: ₹{avg_order_value:,.0f}"
+    )
+
+    st.write(
+        f"- Overall profit margin: {profit_margin:.2f}%"
+    )
+
+    st.write(
+        f"- Cancelled orders: {cancelled_pct:.1f}%"
+    )
 
 else:
-    st.warning("No records match the selected filters.")
 
+    st.warning(
+        "No records match the selected filters."
+    )
+
+
+# =========================================================
+# FOOTER
+# =========================================================
 
 st.divider()
 
