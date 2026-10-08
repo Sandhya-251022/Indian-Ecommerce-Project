@@ -15,29 +15,24 @@ st.set_page_config(
 )
 
 # =========================================================
-# CUSTOM PROFESSIONAL DESIGN
+# PROFESSIONAL DESIGN
 # =========================================================
 
 st.markdown("""
 <style>
 
-/* =========================================================
-   MAIN PAGE
-========================================================= */
+/* ================= MAIN PAGE ================= */
 
 .stApp {
-    background: #f3f7f6;
+    background-color: #f4f7f8;
 }
 
 .block-container {
     max-width: 1500px;
-    padding: 1.2rem 2rem 1.5rem 2rem;
+    padding: 1rem 1.8rem 1rem 1.8rem;
 }
 
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
+/* ================= SIDEBAR ================= */
 
 section[data-testid="stSidebar"] {
     background: linear-gradient(
@@ -47,369 +42,178 @@ section[data-testid="stSidebar"] {
     );
 }
 
-/* Sidebar headings */
-
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3 {
-    color: #ffffff !important;
+    color: white !important;
 }
-
-/* Sidebar labels */
 
 section[data-testid="stSidebar"] label {
     color: #f4fffd !important;
     font-weight: 600 !important;
 }
 
-/* Sidebar normal text */
-
 section[data-testid="stSidebar"] p {
     color: #d7efec !important;
 }
 
-/* =========================================================
-   MULTISELECT
-========================================================= */
-
-section[data-testid="stSidebar"] div[data-baseweb="select"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-}
-
-/* Selected values inside multiselect */
+/* ================= MULTISELECT ================= */
 
 section[data-testid="stSidebar"]
-div[data-baseweb="select"]
+div[data-baseweb="select"] {
+    background-color: white !important;
+    border-radius: 9px !important;
+}
+
+section[data-testid="stSidebar"]
 div[data-baseweb="tag"] {
     background-color: #e05f59 !important;
-    border-radius: 7px !important;
+    border-radius: 6px !important;
 }
 
 section[data-testid="stSidebar"]
-div[data-baseweb="select"]
 div[data-baseweb="tag"] span {
-    color: #ffffff !important;
+    color: white !important;
 }
 
-/* Multiselect input text */
+/* ================= DATE INPUT ================= */
+/*
+   IMPORTANT:
+   Do NOT force colors on the internal date input.
+   Streamlit handles the date field itself.
+*/
 
-section[data-testid="stSidebar"]
-div[data-baseweb="select"]
-input {
-    color: #17383b !important;
-    -webkit-text-fill-color: #17383b !important;
-}
-
-/* Dropdown text */
-
-section[data-testid="stSidebar"]
-div[role="listbox"] {
-    background-color: #ffffff !important;
-}
-
-section[data-testid="stSidebar"]
-div[role="option"] {
-    color: #17383b !important;
-}
-
-
-/* =========================================================
-   DATE INPUT
-========================================================= */
-
-/* Date input box */
-
-section[data-testid="stSidebar"]
-div[data-testid="stDateInput"]
-div[data-baseweb="input"] {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    border: 1px solid #d5e3e1 !important;
-}
-
-/* Date text */
-
-section[data-testid="stSidebar"]
-div[data-testid="stDateInput"]
-input {
-    background-color: #ffffff !important;
-    color: #17383b !important;
-    -webkit-text-fill-color: #17383b !important;
-    font-weight: 600 !important;
-    opacity: 1 !important;
-}
-
-/* Date placeholder */
-
-section[data-testid="stSidebar"]
-div[data-testid="stDateInput"]
-input::placeholder {
-    color: #607779 !important;
-    -webkit-text-fill-color: #607779 !important;
-    opacity: 1 !important;
-}
-
-/* Calendar icon */
-
-section[data-testid="stSidebar"]
-div[data-testid="stDateInput"]
-svg {
-    color: #17383b !important;
-    fill: #17383b !important;
-}
-
-/* Date input button */
-
-section[data-testid="stSidebar"]
-div[data-testid="stDateInput"]
-button {
-    color: #17383b !important;
-}
-
-
-/* =========================================================
-   DATE CALENDAR POPUP
-========================================================= */
-
-div[data-baseweb="calendar"] {
-    background-color: #ffffff !important;
-}
-
-div[data-baseweb="calendar"] * {
-    color: #17383b;
-}
-
-div[data-baseweb="calendar"] button {
-    color: #17383b !important;
-}
-
-
-/* =========================================================
-   DATE RANGE HEADING
-========================================================= */
-
-.date-heading {
-    color: #ffffff !important;
-    font-size: 1.05rem;
-    font-weight: 800;
-    margin-top: 14px;
+section[data-testid="stSidebar"] div[data-testid="stDateInput"] {
     margin-bottom: 8px;
 }
 
+/* ================= HERO ================= */
 
-/* =========================================================
-   DATASET PERIOD BOX
-========================================================= */
-
-.dataset-period {
-    background: #e8f7f4;
-    color: #164e52;
-    padding: 10px 12px;
-    border-radius: 10px;
-    margin-top: 8px;
-    font-size: 0.80rem;
-    line-height: 1.5;
-}
-
-
-/* =========================================================
-   HERO HEADER
-========================================================= */
-
-.hero {
+.hero-box {
     background: linear-gradient(
-        115deg,
-        #0f3d3e 0%,
-        #147d78 58%,
-        #20a39e 100%
+        120deg,
+        #0d3b3e,
+        #147d78,
+        #20a39e
     );
 
-    border-radius: 22px;
+    padding: 25px 30px;
+    border-radius: 18px;
+    margin-bottom: 15px;
 
-    padding: 28px 32px;
-
-    margin-bottom: 16px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(15, 61, 62, 0.20);
+    box-shadow: 0 8px 25px rgba(15,61,62,0.18);
 }
 
-.hero h1 {
+.hero-title {
     color: white;
-
-    margin: 0;
-
-    font-size: 2.2rem;
-
+    font-size: 2.15rem;
     font-weight: 800;
+    margin: 0;
 }
 
-.hero p {
+.hero-subtitle {
     color: #d9fffa;
+    font-size: 0.98rem;
+    margin-top: 7px;
+}
 
-    margin: 7px 0 0;
+/* ================= DATE INFO ================= */
 
+.period-box {
+    background: white;
+    border-left: 5px solid #159a91;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 12px rgba(22,78,82,0.06);
+}
+
+.period-title {
+    color: #17383b;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.period-value {
+    color: #147d78;
     font-size: 1rem;
+    font-weight: 700;
+    margin-top: 3px;
 }
 
+/* ================= KPI ================= */
 
-/* =========================================================
-   INFORMATION STRIP
-========================================================= */
-
-.info-strip {
-    background: #e6f5f2;
-
-    border: 1px solid #b9dfd9;
-
-    color: #174e4d;
-
-    border-radius: 12px;
-
-    padding: 10px 15px;
-
-    margin-bottom: 16px;
-
-    font-size: 0.88rem;
-}
-
-
-/* =========================================================
-   KPI CARDS
-========================================================= */
-
-.kpi {
-    background: #ffffff;
-
-    border-radius: 16px;
-
-    padding: 17px 19px;
+.kpi-card {
+    background: white;
+    border-radius: 14px;
+    padding: 15px 17px;
+    min-height: 110px;
 
     border: 1px solid #dce9e7;
-
     border-top: 5px solid #159a91;
 
-    box-shadow:
-        0 7px 22px
-        rgba(22, 78, 82, 0.08);
-
-    min-height: 115px;
+    box-shadow: 0 5px 18px rgba(22,78,82,0.07);
 }
 
 .kpi-label {
     color: #607779;
-
-    font-size: 0.74rem;
-
-    font-weight: 750;
-
-    letter-spacing: 0.06em;
-
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 .kpi-value {
     color: #17383b;
-
-    font-size: 1.55rem;
-
+    font-size: 1.48rem;
     font-weight: 800;
-
-    margin-top: 7px;
+    margin-top: 6px;
 }
 
 .kpi-note {
-    color: #7b8f91;
-
-    font-size: 0.76rem;
-
+    color: #819293;
+    font-size: 0.73rem;
     margin-top: 3px;
 }
 
+/* ================= SECTION ================= */
 
-/* =========================================================
-   SECTION TITLES
-========================================================= */
-
-.section {
+.section-title {
     color: #17383b;
-
-    font-size: 1.18rem;
-
+    font-size: 1.15rem;
     font-weight: 800;
-
-    margin: 18px 0 8px;
+    margin-top: 18px;
+    margin-bottom: 4px;
 }
 
+/* ================= INSIGHT ================= */
 
-/* =========================================================
-   CHARTS
-========================================================= */
-
-div[data-testid="stPlotlyChart"] {
-    margin-top: -4px;
-    margin-bottom: -5px;
-}
-
-
-/* =========================================================
-   INSIGHT CARDS
-========================================================= */
-
-.insight {
-    background: #ffffff;
-
-    border-radius: 14px;
-
-    border-left: 5px solid #159a91;
-
-    padding: 14px 16px;
-
-    margin-bottom: 10px;
-
-    box-shadow:
-        0 5px 16px
-        rgba(22, 78, 82, 0.06);
-}
-
-.insight b {
-    color: #17383b;
-}
-
-.insight span {
-    color: #607779;
-
-    font-size: 0.88rem;
-}
-
-
-/* =========================================================
-   DATAFRAME
-========================================================= */
-
-[data-testid="stDataFrame"] {
+.insight-card {
+    background: white;
     border-radius: 12px;
-
-    overflow: hidden;
-
-    border: 1px solid #dce9e7;
+    border-left: 5px solid #159a91;
+    padding: 13px 15px;
+    margin-bottom: 9px;
+    box-shadow: 0 4px 14px rgba(22,78,82,0.06);
 }
 
+.insight-title {
+    color: #17383b;
+    font-weight: 700;
+}
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.insight-text {
+    color: #607779;
+    font-size: 0.86rem;
+}
+
+/* ================= FOOTER ================= */
 
 .footer {
     text-align: center;
-
     color: #789092;
-
-    padding: 20px 0 4px;
-
-    font-size: 0.78rem;
+    font-size: 0.75rem;
+    padding: 18px 0 5px;
 }
 
 </style>
@@ -450,7 +254,6 @@ df = load_data()
 # =========================================================
 
 dataset_start = df["Order_Date"].min().date()
-
 dataset_end = df["Order_Date"].max().date()
 
 
@@ -470,13 +273,11 @@ st.sidebar.markdown("---")
 
 
 # =========================================================
-# STATE FILTER
+# STATE
 # =========================================================
 
 states = sorted(
-    df["State"]
-    .dropna()
-    .unique()
+    df["State"].dropna().unique()
 )
 
 selected_states = st.sidebar.multiselect(
@@ -487,13 +288,11 @@ selected_states = st.sidebar.multiselect(
 
 
 # =========================================================
-# CATEGORY FILTER
+# CATEGORY
 # =========================================================
 
 categories = sorted(
-    df["Category"]
-    .dropna()
-    .unique()
+    df["Category"].dropna().unique()
 )
 
 selected_categories = st.sidebar.multiselect(
@@ -504,13 +303,11 @@ selected_categories = st.sidebar.multiselect(
 
 
 # =========================================================
-# ORDER STATUS FILTER
+# ORDER STATUS
 # =========================================================
 
 statuses = sorted(
-    df["Order_Status"]
-    .dropna()
-    .unique()
+    df["Order_Status"].dropna().unique()
 )
 
 selected_statuses = st.sidebar.multiselect(
@@ -524,48 +321,33 @@ selected_statuses = st.sidebar.multiselect(
 # DATE RANGE
 # =========================================================
 
-st.sidebar.markdown(
-    '<div class="date-heading">📅 Date Range</div>',
-    unsafe_allow_html=True
-)
+st.sidebar.markdown("---")
 
+st.sidebar.markdown(
+    "### 📅 Date Range"
+)
 
 # START DATE
-
 start_date = st.sidebar.date_input(
     "Start date",
-
     value=dataset_start,
-
     min_value=dataset_start,
-
     max_value=dataset_end,
-
-    format="DD/MM/YYYY",
-
-    key="start_date"
+    format="DD/MM/YYYY"
 )
 
-
 # END DATE
-
 end_date = st.sidebar.date_input(
     "End date",
-
     value=dataset_end,
-
     min_value=dataset_start,
-
     max_value=dataset_end,
-
-    format="DD/MM/YYYY",
-
-    key="end_date"
+    format="DD/MM/YYYY"
 )
 
 
 # =========================================================
-# VALIDATE DATES
+# DATE VALIDATION
 # =========================================================
 
 if start_date > end_date:
@@ -578,15 +360,25 @@ if start_date > end_date:
 
 
 # =========================================================
-# SHOW DATASET DATE RANGE
+# SHOW DATASET PERIOD
 # =========================================================
 
 st.sidebar.markdown(
     f"""
-    <div class="dataset-period">
-        <b>📊 Dataset Period</b><br>
+    <div style="
+        background:#e5f5f2;
+        border-radius:9px;
+        padding:10px;
+        margin-top:8px;
+        color:#164e52;
+        font-size:0.78rem;
+        line-height:1.5;
+    ">
+        <b>📊 Dataset Available</b><br>
         {dataset_start.strftime("%d %B %Y")}
-        →
+        <br>
+        to
+        <br>
         {dataset_end.strftime("%d %B %Y")}
     </div>
     """,
@@ -600,53 +392,47 @@ st.sidebar.markdown(
 
 filtered = df[
     df["State"].isin(selected_states)
-
-    & df["Category"].isin(selected_categories)
-
-    & df["Order_Status"].isin(selected_statuses)
-
-    & (
-        df["Order_Date"].dt.date
-        >= start_date
-    )
-
-    & (
-        df["Order_Date"].dt.date
-        <= end_date
-    )
+    &
+    df["Category"].isin(selected_categories)
+    &
+    df["Order_Status"].isin(selected_statuses)
+    &
+    (df["Order_Date"].dt.date >= start_date)
+    &
+    (df["Order_Date"].dt.date <= end_date)
 ].copy()
 
 
 # =========================================================
-# EMPTY DATA CHECK
+# EMPTY DATA
 # =========================================================
 
 if filtered.empty:
 
     st.warning(
         "⚠️ No records match the selected filters. "
-        "Please broaden the filters."
+        "Please change the filters."
     )
 
     st.stop()
 
 
 # =========================================================
-# HERO HEADER
+# HEADER
 # =========================================================
 
 st.markdown(
     """
-    <div class="hero">
+    <div class="hero-box">
 
-        <h1>
+        <div class="hero-title">
             🛒 Indian E-Commerce Business Dashboard
-        </h1>
+        </div>
 
-        <p>
+        <div class="hero-subtitle">
             Interactive analysis of sales, profitability,
             orders, products and regional performance
-        </p>
+        </div>
 
     </div>
     """,
@@ -655,22 +441,22 @@ st.markdown(
 
 
 # =========================================================
-# SELECTED DATE INFORMATION
+# SELECTED PERIOD
 # =========================================================
 
 st.markdown(
     f"""
-    <div class="info-strip">
+    <div class="period-box">
 
-        📅 <b>Selected Period:</b>
-        {start_date.strftime("%d %B %Y")}
-        →
-        {end_date.strftime("%d %B %Y")}
+        <div class="period-title">
+            📅 SELECTED ANALYSIS PERIOD
+        </div>
 
-        &nbsp;&nbsp; | &nbsp;&nbsp;
-
-        📊 <b>Records Analysed:</b>
-        {len(filtered):,}
+        <div class="period-value">
+            {start_date.strftime("%d %B %Y")}
+            &nbsp; → &nbsp;
+            {end_date.strftime("%d %B %Y")}
+        </div>
 
     </div>
     """,
@@ -692,13 +478,13 @@ total_quantity = filtered["Quantity"].sum()
 
 profit_margin = (
     total_profit / total_sales * 100
-    if total_sales
+    if total_sales != 0
     else 0
 )
 
 avg_order_value = (
     total_sales / total_orders
-    if total_orders
+    if total_orders != 0
     else 0
 )
 
@@ -709,9 +495,7 @@ avg_order_value = (
 
 kpi_cols = st.columns(5)
 
-
 kpis = [
-
     (
         "Total Sales",
         f"₹{total_sales:,.0f}",
@@ -743,7 +527,6 @@ kpis = [
     )
 ]
 
-
 for col, (label, value, note) in zip(
     kpi_cols,
     kpis
@@ -753,7 +536,7 @@ for col, (label, value, note) in zip(
 
         st.markdown(
             f"""
-            <div class="kpi">
+            <div class="kpi-card">
 
                 <div class="kpi-label">
                     {label}
@@ -774,14 +557,13 @@ for col, (label, value, note) in zip(
 
 
 # =========================================================
-# PREPARE CHART DATA
+# PREPARE DATA
 # =========================================================
 
 monthly = (
     filtered
     .groupby(
-        filtered["Order_Date"]
-        .dt.to_period("M")
+        filtered["Order_Date"].dt.to_period("M")
     )["Sales_INR"]
     .sum()
     .reset_index()
@@ -882,13 +664,10 @@ top_products = (
 
 
 # =========================================================
-# CHART STYLE FUNCTION
+# CHART STYLE
 # =========================================================
 
-def chart_style(
-    fig,
-    height=350
-):
+def chart_style(fig, height=330):
 
     fig.update_layout(
 
@@ -906,14 +685,14 @@ def chart_style(
         ),
 
         margin=dict(
-            l=35,
+            l=40,
             r=20,
-            t=60,
+            t=55,
             b=40
         ),
 
         title_font=dict(
-            size=17,
+            size=16,
             color="#17383b"
         ),
 
@@ -921,7 +700,6 @@ def chart_style(
             bgcolor="white",
             font_size=12
         )
-
     )
 
     fig.update_xaxes(
@@ -929,7 +707,7 @@ def chart_style(
     )
 
     fig.update_yaxes(
-        gridcolor="#e4eeee"
+        gridcolor="#e5eeee"
     )
 
     return fig
@@ -949,37 +727,33 @@ tab1, tab2, tab3 = st.tabs(
 
 
 # =========================================================
-# TAB 1 - EXECUTIVE OVERVIEW
+# TAB 1
 # =========================================================
 
 with tab1:
 
     st.markdown(
-        '<div class="section">'
+        '<div class="section-title">'
         '📈 Sales & Profit Performance'
         '</div>',
         unsafe_allow_html=True
     )
 
+    # -----------------------------------------------------
+    # ROW 1
+    # -----------------------------------------------------
 
     c1, c2 = st.columns(2)
 
-
-    # -----------------------------------------------------
     # MONTHLY SALES
-    # -----------------------------------------------------
 
     with c1:
 
         fig = px.line(
             monthly,
-
             x="Month",
-
             y="Sales_INR",
-
             markers=True,
-
             title="Monthly Sales Trend"
         )
 
@@ -988,7 +762,6 @@ with tab1:
                 color="#159a91",
                 width=3
             ),
-
             marker=dict(
                 size=8
             )
@@ -999,28 +772,20 @@ with tab1:
             use_container_width=True
         )
 
-
-    # -----------------------------------------------------
     # CATEGORY SALES
-    # -----------------------------------------------------
 
     with c2:
 
         fig = px.bar(
             category_sales,
-
             x="Category",
-
             y="Sales_INR",
-
             text_auto=".2s",
-
             title="Sales by Category"
         )
 
         fig.update_traces(
             marker_color="#20a39e",
-
             textposition="outside"
         )
 
@@ -1029,27 +794,22 @@ with tab1:
             use_container_width=True
         )
 
+    # -----------------------------------------------------
+    # ROW 2
+    # -----------------------------------------------------
 
     c1, c2 = st.columns(2)
 
-
-    # -----------------------------------------------------
     # TOP STATES
-    # -----------------------------------------------------
 
     with c1:
 
         fig = px.bar(
             state_sales.head(10),
-
             x="Sales_INR",
-
             y="State",
-
             orientation="h",
-
             text_auto=".2s",
-
             title="Top 10 States by Sales"
         )
 
@@ -1059,8 +819,7 @@ with tab1:
 
         fig.update_layout(
             yaxis={
-                "categoryorder":
-                "total ascending"
+                "categoryorder": "total ascending"
             }
         )
 
@@ -1069,28 +828,20 @@ with tab1:
             use_container_width=True
         )
 
-
-    # -----------------------------------------------------
     # CATEGORY PROFIT
-    # -----------------------------------------------------
 
     with c2:
 
         fig = px.bar(
             category_profit,
-
             x="Category",
-
             y="Profit_INR",
-
             text_auto=".2s",
-
             title="Profit by Category"
         )
 
         fig.update_traces(
             marker_color="#e3a72f",
-
             textposition="outside"
         )
 
@@ -1101,42 +852,38 @@ with tab1:
 
 
 # =========================================================
-# TAB 2 - PRODUCTS & ORDERS
+# TAB 2
 # =========================================================
+
 with tab2:
 
     st.markdown(
-        '<div class="section">'
+        '<div class="section-title">'
         '📦 Product & Order Behaviour'
         '</div>',
         unsafe_allow_html=True
     )
 
+    # -----------------------------------------------------
+    # PAYMENT + STATUS
+    # -----------------------------------------------------
 
     c1, c2 = st.columns(2)
 
-
-    # -----------------------------------------------------
     # PAYMENT
-    # -----------------------------------------------------
 
     with c1:
 
         fig = px.pie(
             payment,
-
             names="Payment_Mode",
-
             values="Count",
-
-            hole=0.58,
-
+            hole=0.55,
             title="Payment Method Distribution"
         )
 
         fig.update_traces(
             textposition="inside",
-
             textinfo="percent+label"
         )
 
@@ -1145,28 +892,20 @@ with tab2:
             use_container_width=True
         )
 
-
-    # -----------------------------------------------------
-    # STATUS
-    # -----------------------------------------------------
+    # ORDER STATUS
 
     with c2:
 
         fig = px.pie(
             status,
-
             names="Order_Status",
-
             values="Count",
-
-            hole=0.58,
-
+            hole=0.55,
             title="Order Status Distribution"
         )
 
         fig.update_traces(
             textposition="inside",
-
             textinfo="percent+label"
         )
 
@@ -1174,7 +913,6 @@ with tab2:
             chart_style(fig),
             use_container_width=True
         )
-
 
     # -----------------------------------------------------
     # QUANTITY VS SALES
@@ -1182,87 +920,69 @@ with tab2:
 
     fig = px.scatter(
         filtered,
-
         x="Quantity",
-
         y="Sales_INR",
-
         color="Category",
-
         hover_data=[
             "Sub_Category",
             "State",
             "Order_Status"
         ],
-
         title="Quantity vs Sales"
     )
 
     fig.update_traces(
-        marker_size=9,
-
-        opacity=0.72
+        marker_size=8,
+        opacity=0.75
     )
 
     st.plotly_chart(
-        chart_style(
-            fig,
-            390
-        ),
+        chart_style(fig, 380),
         use_container_width=True
     )
-
 
     # -----------------------------------------------------
     # TOP PRODUCTS
     # -----------------------------------------------------
 
     st.markdown(
-        '<div class="section">'
+        '<div class="section-title">'
         '🏆 Top 10 Product Segments'
         '</div>',
         unsafe_allow_html=True
     )
 
+    display_products = top_products.copy()
 
-    table = top_products.copy()
-
-
-    table["Sales_INR"] = table[
-        "Sales_INR"
-    ].map(
-        lambda x: f"₹{x:,.0f}"
+    display_products["Sales_INR"] = (
+        display_products["Sales_INR"]
+        .map(lambda x: f"₹{x:,.0f}")
     )
 
-
-    table["Profit_INR"] = table[
-        "Profit_INR"
-    ].map(
-        lambda x: f"₹{x:,.0f}"
+    display_products["Profit_INR"] = (
+        display_products["Profit_INR"]
+        .map(lambda x: f"₹{x:,.0f}")
     )
-
 
     st.dataframe(
-        table,
-
+        display_products,
         use_container_width=True,
-
         hide_index=True
     )
 
+
 # =========================================================
-# TAB 3 - BUSINESS INSIGHTS
+# TAB 3
 # =========================================================
 
 with tab3:
 
     st.markdown(
-        '<div class="section">'
+        '<div class="section-title">'
         '💡 Key Business Insights'
         '</div>',
         unsafe_allow_html=True
     )
-
 
     best_category = (
         category_sales.iloc[0]["Category"]
@@ -1276,14 +996,12 @@ with tab3:
         top_products.iloc[0]["Sub_Category"]
     )
 
-
     delivered_pct = (
         filtered["Order_Status"]
         .eq("Delivered")
         .mean()
         * 100
     )
-
 
     cancelled_pct = (
         filtered["Order_Status"]
@@ -1297,44 +1015,32 @@ with tab3:
 
         (
             "🏆 Leading Category",
-
-            f"{best_category} has "
-            "the highest sales."
+            f"{best_category} has the highest sales."
         ),
 
         (
             "📍 Leading State",
-
-            f"{best_state} is "
-            "the strongest state by sales."
+            f"{best_state} is the strongest state by sales."
         ),
 
         (
             "⭐ Top Product Segment",
-
-            f"{best_product} is "
-            "the top-selling product segment."
+            f"{best_product} is the top-selling product segment."
         ),
 
         (
             "🚚 Delivery Performance",
-
-            f"{delivered_pct:.1f}% "
-            "of orders are delivered."
+            f"{delivered_pct:.1f}% of orders are delivered."
         ),
 
         (
             "💰 Average Order Value",
-
-            f"Average order value is "
-            f"₹{avg_order_value:,.0f}."
+            f"Average order value is ₹{avg_order_value:,.0f}."
         ),
 
         (
             "📉 Cancellation Rate",
-
-            f"{cancelled_pct:.1f}% "
-            "of orders are cancelled."
+            f"{cancelled_pct:.1f}% of orders are cancelled."
         )
     ]
 
@@ -1342,9 +1048,7 @@ with tab3:
     left, right = st.columns(2)
 
 
-    for i, (title, message) in enumerate(
-        insights
-    ):
+    for i, (title, message) in enumerate(insights):
 
         target = (
             left
@@ -1352,18 +1056,19 @@ with tab3:
             else right
         )
 
-
         with target:
 
             st.markdown(
                 f"""
-                <div class="insight">
+                <div class="insight-card">
 
-                    <b>{title}</b>
+                    <div class="insight-title">
+                        {title}
+                    </div>
 
-                    <br>
-
-                    <span>{message}</span>
+                    <div class="insight-text">
+                        {message}
+                    </div>
 
                 </div>
                 """,
@@ -1376,20 +1081,22 @@ with tab3:
     # -----------------------------------------------------
 
     st.markdown(
-        '<div class="section">'
+        '<div class="section-title">'
         '📋 Management Summary'
         '</div>',
         unsafe_allow_html=True
     )
 
-
     st.success(
-        f"During the selected period, the business generated "
-        f"₹{total_sales:,.0f} in sales and "
-        f"₹{total_profit:,.0f} in profit from "
-        f"{total_orders:,} orders. "
-        f"The overall profit margin is "
-        f"{profit_margin:.2f}%."
+        f"""
+        During the selected period, the business generated
+        ₹{total_sales:,.0f} in sales and
+        ₹{total_profit:,.0f} in profit from
+        {total_orders:,} orders.
+
+        The overall profit margin is
+        {profit_margin:.2f}%.
+        """
     )
 
 
@@ -1400,13 +1107,8 @@ with tab3:
 st.markdown(
     """
     <div class="footer">
-
-        🛒 <b>Indian E-Commerce Business Analytics</b>
-
-        <br>
-
-        Python • Pandas • Plotly • Streamlit
-
+        Indian E-Commerce Business Analytics
+        • Python • Pandas • Plotly • Streamlit
     </div>
     """,
     unsafe_allow_html=True
