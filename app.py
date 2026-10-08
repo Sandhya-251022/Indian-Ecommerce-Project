@@ -9,13 +9,14 @@ st.set_page_config(
     layout="wide"
 )
 
-* =====================================================
-   MAIN DASHBOARD BACKGROUND
-   ===================================================== *
+# =========================================================
+# DASHBOARD BACKGROUND & DESIGN
+# =========================================================
 
-       st.markdown("""
+st.markdown("""
 <style>
 
+/* MAIN DASHBOARD BACKGROUND */
 html, body, [data-testid="stAppViewContainer"] {
     background: linear-gradient(
         135deg,
@@ -39,10 +40,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 
-/* =====================================================
-   MAIN CONTENT
-   ===================================================== */
-
+/* MAIN CONTENT */
 .main {
     background: transparent !important;
 }
@@ -53,10 +51,7 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 
-/* =====================================================
-   TITLE
-   ===================================================== */
-
+/* TITLE */
 h1 {
     color: #FFFFFF !important;
     font-weight: 800 !important;
@@ -67,27 +62,14 @@ h2, h3 {
     color: #FFFFFF !important;
 }
 
+
+/* CAPTION */
 .stCaption {
     color: #D5E5F5 !important;
 }
 
 
-/* =====================================================
-   NORMAL TEXT
-   ===================================================== */
-
-.stMarkdown,
-.stText,
-p,
-label {
-    color: #EAF4FF;
-}
-
-
-/* =====================================================
-   SIDEBAR
-   ===================================================== */
-
+/* SIDEBAR */
 section[data-testid="stSidebar"] {
     background: linear-gradient(
         180deg,
@@ -110,10 +92,7 @@ section[data-testid="stSidebar"] p {
 }
 
 
-/* =====================================================
-   SIDEBAR SELECT BOXES
-   ===================================================== */
-
+/* SIDEBAR SELECT BOX */
 section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
     background-color: #F1F6FA !important;
     color: #111111 !important;
@@ -125,10 +104,7 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] span {
 }
 
 
-/* =====================================================
-   DATE INPUT
-   ===================================================== */
-
+/* DATE INPUT */
 section[data-testid="stSidebar"] div[data-baseweb="input"] {
     background-color: #F1F6FA !important;
     border-radius: 10px !important;
@@ -148,10 +124,7 @@ section[data-testid="stSidebar"] div[data-baseweb="input"] svg {
 }
 
 
-/* =====================================================
-   KPI CARDS - LIGHT BLUE
-   ===================================================== */
-
+/* KPI CARDS - LIGHT BLUE */
 div[data-testid="metric-container"] {
     background: #EAF3F8 !important;
     border-radius: 16px !important;
@@ -170,15 +143,8 @@ div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     font-weight: 700 !important;
 }
 
-div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
-    color: #234E70 !important;
-}
 
-
-/* =====================================================
-   CHART CARDS - LIGHT BLUE
-   ===================================================== */
-
+/* CHART CARDS - LIGHT BLUE */
 div[data-testid="stPlotlyChart"] {
     background: #EAF3F8 !important;
     border-radius: 18px !important;
@@ -188,10 +154,7 @@ div[data-testid="stPlotlyChart"] {
 }
 
 
-/* =====================================================
-   DATAFRAME - LIGHT BLUE
-   ===================================================== */
-
+/* DATAFRAME - LIGHT BLUE */
 div[data-testid="stDataFrame"] {
     background: #EAF3F8 !important;
     border-radius: 15px !important;
@@ -201,45 +164,31 @@ div[data-testid="stDataFrame"] {
 }
 
 
-/* =====================================================
-   INFO BOXES
-   ===================================================== */
-
+/* INFO BOXES */
 div[data-testid="stAlert"] {
     border-radius: 12px !important;
 }
 
 
-/* =====================================================
-   DIVIDER
-   ===================================================== */
-
+/* DIVIDER */
 hr {
     border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 
-/* =====================================================
-   BUTTONS
-   ===================================================== */
-
+/* BUTTONS */
 button {
     border-radius: 8px !important;
 }
 
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
-
+/* FOOTER */
 footer {
     visibility: hidden;
 }
 
 </style>
 """, unsafe_allow_html=True)
-
-
 # =========================================================
 # LOAD DATA
 # =========================================================
