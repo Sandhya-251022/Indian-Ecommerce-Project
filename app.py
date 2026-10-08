@@ -9,12 +9,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# =========================================================
-# DASHBOARD BACKGROUND & DESIGN
-# =========================================================
-st.markdown("""
-<style>
-
 /* =====================================================
    MAIN DASHBOARD BACKGROUND
    ===================================================== */
@@ -41,7 +35,11 @@ html, body, [data-testid="stAppViewContainer"] {
     background: transparent !important;
 }
 
-/* Main content */
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+
 .main {
     background: transparent !important;
 }
@@ -114,7 +112,7 @@ section[data-testid="stSidebar"] p {
    ===================================================== */
 
 section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
-    background-color: #FFFFFF !important;
+    background-color: #F1F6FA !important;
     color: #111111 !important;
     border-radius: 8px !important;
 }
@@ -129,13 +127,13 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] span {
    ===================================================== */
 
 section[data-testid="stSidebar"] div[data-baseweb="input"] {
-    background-color: #FFFFFF !important;
+    background-color: #F1F6FA !important;
     border-radius: 10px !important;
 }
 
 section[data-testid="stSidebar"] div[data-baseweb="input"] input {
     color: #111111 !important;
-    background-color: #FFFFFF !important;
+    background-color: #F1F6FA !important;
 }
 
 section[data-testid="stSidebar"] div[data-baseweb="input"] input::placeholder {
@@ -148,14 +146,14 @@ section[data-testid="stSidebar"] div[data-baseweb="input"] svg {
 
 
 /* =====================================================
-   METRIC CARDS
+   KPI CARDS - LIGHT BLUE
    ===================================================== */
 
 div[data-testid="metric-container"] {
-    background: #FFFFFF !important;
+    background: #EAF3F8 !important;
     border-radius: 16px !important;
     padding: 18px !important;
-    border: 1px solid #D9E8F5 !important;
+    border: 1px solid #C8DCE8 !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
@@ -175,27 +173,28 @@ div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
 
 
 /* =====================================================
-   CHART CARDS
+   CHART CARDS - LIGHT BLUE
    ===================================================== */
 
 div[data-testid="stPlotlyChart"] {
-    background: #FFFFFF !important;
+    background: #EAF3F8 !important;
     border-radius: 18px !important;
     padding: 10px !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid #D9E8F5 !important;
+    border: 1px solid #C8DCE8 !important;
 }
 
 
 /* =====================================================
-   DATAFRAME
+   DATAFRAME - LIGHT BLUE
    ===================================================== */
 
 div[data-testid="stDataFrame"] {
-    background: #FFFFFF !important;
+    background: #EAF3F8 !important;
     border-radius: 15px !important;
     padding: 8px !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid #C8DCE8 !important;
 }
 
 
