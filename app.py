@@ -1020,4 +1020,5 @@ st.markdown(
         Python • Pandas • Plotly • Streamlit
     </div>
     """,
-    unsafe_allow_h
+    unsafe_allow_h=True
+)
