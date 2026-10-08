@@ -3,221 +3,202 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
-# =========================================================
+# ============================================================
 # PAGE CONFIGURATION
-# =========================================================
+# ============================================================
 
 st.set_page_config(
-    page_title="Indian E-Commerce Business Dashboard",
-    page_icon="🛒",
+    page_title="Indian E-Commerce Analytics",
+    page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# =========================================================
-# PROFESSIONAL DESIGN
-# =========================================================
+# ============================================================
+# PROFESSIONAL PURPLE THEME
+# ============================================================
 
 st.markdown("""
 <style>
 
-/* ================= MAIN PAGE ================= */
+    /* Main page */
+    .stApp {
+        background: #F7F5FC;
+        color: #241B35;
+    }
 
-.stApp {
-    background-color: #f4f7f8;
-}
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #24113F 0%, #35165C 50%, #472078 100%);
+    }
 
-.block-container {
-    max-width: 1500px;
-    padding: 1rem 1.8rem 1rem 1.8rem;
-}
+    section[data-testid="stSidebar"] * {
+        color: #FFFFFF !important;
+    }
 
-/* ================= SIDEBAR ================= */
+    section[data-testid="stSidebar"] label {
+        font-weight: 600 !important;
+    }
 
-section[data-testid="stSidebar"] {
-    background: linear-gradient(
-        180deg,
-        #102a2e 0%,
-        #164e52 100%
-    );
-}
+    /* Sidebar date input */
+    section[data-testid="stSidebar"] input {
+        background-color: #FFFFFF !important;
+        color: #241B35 !important;
+        border-radius: 10px !important;
+        border: 1px solid #D8B4FE !important;
+        font-weight: 600 !important;
+    }
 
-section[data-testid="stSidebar"] h1,
-section[data-testid="stSidebar"] h2,
-section[data-testid="stSidebar"] h3 {
-    color: white !important;
-}
+    /* Sidebar select boxes */
+    section[data-testid="stSidebar"] div[data-baseweb="select"] {
+        background-color: #FFFFFF !important;
+        border-radius: 10px !important;
+    }
 
-section[data-testid="stSidebar"] label {
-    color: #f4fffd !important;
-    font-weight: 600 !important;
-}
+    section[data-testid="stSidebar"] div[data-baseweb="select"] * {
+        color: #241B35 !important;
+    }
 
-section[data-testid="stSidebar"] p {
-    color: #d7efec !important;
-}
+    /* Header */
+    .dashboard-header {
+        background: linear-gradient(
+            135deg,
+            #32145F 0%,
+            #5B21B6 50%,
+            #7C3AED 100%
+        );
+        padding: 35px 40px;
+        border-radius: 0 0 25px 25px;
+        color: white;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 30px rgba(91, 33, 182, 0.25);
+    }
 
-/* ================= MULTISELECT ================= */
+    .dashboard-title {
+        font-size: 38px;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
 
-section[data-testid="stSidebar"]
-div[data-baseweb="select"] {
-    background-color: white !important;
-    border-radius: 9px !important;
-}
+    .dashboard-subtitle {
+        font-size: 16px;
+        color: #E9D5FF;
+    }
 
-section[data-testid="stSidebar"]
-div[data-baseweb="tag"] {
-    background-color: #e05f59 !important;
-    border-radius: 6px !important;
-}
+    /* KPI Cards */
+    .kpi-card {
+        background: white;
+        padding: 22px;
+        border-radius: 18px;
+        border: 1px solid #E9D5FF;
+        box-shadow: 0 5px 18px rgba(76, 29, 149, 0.10);
+        min-height: 135px;
+        transition: 0.2s;
+    }
 
-section[data-testid="stSidebar"]
-div[data-baseweb="tag"] span {
-    color: white !important;
-}
+    .kpi-card:hover {
+        box-shadow: 0 8px 25px rgba(76, 29, 149, 0.18);
+    }
 
-/* ================= DATE INPUT ================= */
-/*
-   IMPORTANT:
-   Do NOT force colors on the internal date input.
-   Streamlit handles the date field itself.
-*/
+    .kpi-title {
+        color: #6B5B7A;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+    }
 
-section[data-testid="stSidebar"] div[data-testid="stDateInput"] {
-    margin-bottom: 8px;
-}
+    .kpi-value {
+        color: #32145F;
+        font-size: 28px;
+        font-weight: 800;
+        margin-top: 8px;
+    }
 
-/* ================= HERO ================= */
+    .kpi-description {
+        color: #8B7D99;
+        font-size: 12px;
+        margin-top: 5px;
+    }
 
-.hero-box {
-    background: linear-gradient(
-        120deg,
-        #0d3b3e,
-        #147d78,
-        #20a39e
-    );
+    /* Section headings */
+    .section-title {
+        color: #32145F;
+        font-size: 24px;
+        font-weight: 800;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
 
-    padding: 25px 30px;
-    border-radius: 18px;
-    margin-bottom: 15px;
+    /* Dataset period box */
+    .dataset-period {
+        background: linear-gradient(
+            135deg,
+            #EDE9FE,
+            #DDD6FE
+        );
+        color: #4C1D95 !important;
+        padding: 14px 16px;
+        border-radius: 12px;
+        margin-top: 12px;
+        border: 1px solid #C4B5FD;
+        font-size: 13px;
+        line-height: 1.6;
+    }
 
-    box-shadow: 0 8px 25px rgba(15,61,62,0.18);
-}
+    .dataset-period b {
+        color: #32145F !important;
+    }
 
-.hero-title {
-    color: white;
-    font-size: 2.15rem;
-    font-weight: 800;
-    margin: 0;
-}
+    /* Insight box */
+    .insight-box {
+        background: white;
+        border-left: 5px solid #7C3AED;
+        padding: 18px;
+        margin: 10px 0;
+        border-radius: 10px;
+        box-shadow: 0 3px 12px rgba(76, 29, 149, 0.08);
+        color: #33263D;
+    }
 
-.hero-subtitle {
-    color: #d9fffa;
-    font-size: 0.98rem;
-    margin-top: 7px;
-}
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 10px;
+        background: #EDE9FE;
+        padding: 8px;
+        border-radius: 12px;
+    }
 
-/* ================= DATE INFO ================= */
+    .stTabs [data-baseweb="tab"] {
+        color: #4C1D95;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 10px 18px;
+    }
 
-.period-box {
-    background: white;
-    border-left: 5px solid #159a91;
-    border-radius: 10px;
-    padding: 12px 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 12px rgba(22,78,82,0.06);
-}
+    .stTabs [aria-selected="true"] {
+        background: #7C3AED !important;
+        color: white !important;
+    }
 
-.period-title {
-    color: #17383b;
-    font-weight: 700;
-    font-size: 0.85rem;
-}
+    /* Buttons */
+    .stButton > button {
+        background: #7C3AED;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        font-weight: 700;
+    }
 
-.period-value {
-    color: #147d78;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-top: 3px;
-}
-
-/* ================= KPI ================= */
-
-.kpi-card {
-    background: white;
-    border-radius: 14px;
-    padding: 15px 17px;
-    min-height: 110px;
-
-    border: 1px solid #dce9e7;
-    border-top: 5px solid #159a91;
-
-    box-shadow: 0 5px 18px rgba(22,78,82,0.07);
-}
-
-.kpi-label {
-    color: #607779;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.kpi-value {
-    color: #17383b;
-    font-size: 1.48rem;
-    font-weight: 800;
-    margin-top: 6px;
-}
-
-.kpi-note {
-    color: #819293;
-    font-size: 0.73rem;
-    margin-top: 3px;
-}
-
-/* ================= SECTION ================= */
-
-.section-title {
-    color: #17383b;
-    font-size: 1.15rem;
-    font-weight: 800;
-    margin-top: 18px;
-    margin-bottom: 4px;
-}
-
-/* ================= INSIGHT ================= */
-
-.insight-card {
-    background: white;
-    border-radius: 12px;
-    border-left: 5px solid #159a91;
-    padding: 13px 15px;
-    margin-bottom: 9px;
-    box-shadow: 0 4px 14px rgba(22,78,82,0.06);
-}
-
-.insight-title {
-    color: #17383b;
-    font-weight: 700;
-}
-
-.insight-text {
-    color: #607779;
-    font-size: 0.86rem;
-}
-
-/* ================= FOOTER ================= */
-
-.footer {
-    text-align: center;
-    color: #789092;
-    font-size: 0.75rem;
-    padding: 18px 0 5px;
-}
+    /* Dataframe */
+    .stDataFrame {
+        border-radius: 12px;
+        overflow: hidden;
+    }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # =========================================================
