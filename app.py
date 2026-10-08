@@ -235,8 +235,8 @@ if start_date > end_date:
 st.sidebar.markdown(
     f"""
     <div style="
-        background:#e8f7f4;
-        color:#164e52;
+        background:#F3E8FF;
+        color:#581C87;
         padding:10px;
         border-radius:10px;
         margin-top:8px;
