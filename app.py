@@ -3,9 +3,11 @@ import pandas as pd
 import plotly.express as px
 from pathlib import Path
 
+
 # =========================================================
 # PAGE CONFIG
 # =========================================================
+
 st.set_page_config(
     page_title="Indian E-Commerce Analytics",
     page_icon="🛍️",
@@ -13,15 +15,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# =========================================================
-# PROFESSIONAL THEME - SIMPLE COLOR NAMES
-# =========================================================
-st.markdown("""
-<style>
 
-    /* =====================================================
-       GLOBAL
-       ===================================================== */
+# =========================================================
+# PROFESSIONAL THEME
+# =========================================================
+
+st.markdown(
+    """
+    <style>
+
+    /* =========================
+       MAIN PAGE
+       ========================= */
 
     .stApp {
         background: whitesmoke;
@@ -33,17 +38,13 @@ st.markdown("""
         max-width: 1500px;
     }
 
-    header[data-testid="stHeader"] {
-        background: transparent;
-    }
 
-    /* =====================================================
+    /* =========================
        SIDEBAR
-       ===================================================== */
+       ========================= */
 
     section[data-testid="stSidebar"] {
         background: navy;
-        border-right: 1px solid darkgray;
     }
 
     section[data-testid="stSidebar"] > div {
@@ -82,9 +83,10 @@ st.markdown("""
         border-radius: 8px;
     }
 
-    /* =====================================================
-       MAIN HEADER
-       ===================================================== */
+
+    /* =========================
+       HEADER
+       ========================= */
 
     .dashboard-header {
         background: linear-gradient(
@@ -98,8 +100,7 @@ st.markdown("""
         border-radius: 22px;
         margin-bottom: 25px;
 
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.20);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
     }
 
     .dashboard-header h1 {
@@ -107,7 +108,6 @@ st.markdown("""
         font-size: 2.35rem;
         margin: 0;
         font-weight: 800;
-        letter-spacing: -0.03em;
     }
 
     .dashboard-header p {
@@ -118,8 +118,8 @@ st.markdown("""
 
     .dashboard-badge {
         display: inline-block;
-        background: rgba(255,255,255,0.10);
-        border: 1px solid rgba(255,255,255,0.15);
+        background: rgba(255, 255, 255, 0.10);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         color: lightblue;
         padding: 5px 12px;
         border-radius: 20px;
@@ -128,9 +128,10 @@ st.markdown("""
         font-weight: 600;
     }
 
-    /* =====================================================
-       SECTION TITLE
-       ===================================================== */
+
+    /* =========================
+       SECTION TITLES
+       ========================= */
 
     .section-title {
         color: navy;
@@ -146,9 +147,10 @@ st.markdown("""
         margin-bottom: 15px;
     }
 
-    /* =====================================================
+
+    /* =========================
        KPI CARDS
-       ===================================================== */
+       ========================= */
 
     .kpi-card {
         background: white;
@@ -158,37 +160,27 @@ st.markdown("""
 
         border: 1px solid lightgray;
 
-        box-shadow:
-            0 8px 25px rgba(0, 0, 0, 0.07);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
 
         min-height: 125px;
-
-        transition: all 0.25s ease;
-    }
-
-    .kpi-card:hover {
-        transform: translateY(-3px);
-
-        box-shadow:
-            0 14px 30px rgba(0, 0, 0, 0.11);
     }
 
     .kpi-card::after {
         content: "";
         display: block;
 
-        position: absolute;
-        top: 0;
-        left: 0;
-
         width: 100%;
         height: 4px;
+
+        margin-top: 12px;
 
         background: linear-gradient(
             90deg,
             blue,
             cyan
         );
+
+        border-radius: 5px;
     }
 
     .kpi-label {
@@ -212,9 +204,10 @@ st.markdown("""
         margin-top: 4px;
     }
 
-    /* =====================================================
+
+    /* =========================
        INSIGHT CARDS
-       ===================================================== */
+       ========================= */
 
     .insight-card {
         background: white;
@@ -227,13 +220,12 @@ st.markdown("""
         padding: 17px 18px;
         margin-bottom: 12px;
 
-        box-shadow:
-            0 6px 18px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     }
 
     .insight-title {
         color: navy;
-        font-weight: 750;
+        font-weight: 700;
         margin-bottom: 5px;
         font-size: 0.95rem;
     }
@@ -244,9 +236,10 @@ st.markdown("""
         line-height: 1.5;
     }
 
-    /* =====================================================
+
+    /* =========================
        MANAGEMENT SUMMARY
-       ===================================================== */
+       ========================= */
 
     .summary-box {
         background: aliceblue;
@@ -258,13 +251,13 @@ st.markdown("""
 
         color: navy;
 
-        box-shadow:
-            0 6px 20px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
     }
 
-    /* =====================================================
+
+    /* =========================
        TABS
-       ===================================================== */
+       ========================= */
 
     button[data-baseweb="tab"] {
         font-weight: 700;
@@ -280,34 +273,28 @@ st.markdown("""
         background-color: blue !important;
     }
 
-    /* =====================================================
+
+    /* =========================
        DATAFRAME
-       ===================================================== */
+       ========================= */
 
     div[data-testid="stDataFrame"] {
         border-radius: 14px;
         overflow: hidden;
         border: 1px solid lightgray;
 
-        box-shadow:
-            0 5px 18px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
     }
 
-    /* =====================================================
-       ALERTS
-       ===================================================== */
 
-    div[data-testid="stAlert"] {
-        border-radius: 12px;
-    }
-
-    /* =====================================================
+    /* =========================
        FOOTER
-       ===================================================== */
+       ========================= */
 
     .footer {
         text-align: center;
         color: gray;
+
         font-size: 0.78rem;
 
         padding: 30px 0 8px 0;
@@ -317,12 +304,14 @@ st.markdown("""
         margin-top: 35px;
     }
 
-</style>
-""", unsafe_allow_html=True)
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # =========================================================
-# DATA
+# LOAD DATA
 # =========================================================
 
 @st.cache_data
@@ -340,9 +329,11 @@ def load_data():
         errors="coerce"
     )
 
-    return data.dropna(
+    data = data.dropna(
         subset=["Order_Date"]
     ).copy()
+
+    return data
 
 
 df = load_data()
@@ -352,47 +343,63 @@ df = load_data()
 # HEADER
 # =========================================================
 
-st.markdown("""
-<div class="dashboard-header">
+st.markdown(
+    """
+    <div class="dashboard-header">
 
-    <div class="dashboard-badge">
-        BUSINESS INTELLIGENCE • DATA ANALYTICS
+        <div class="dashboard-badge">
+            BUSINESS INTELLIGENCE • DATA ANALYTICS
+        </div>
+
+        <h1>
+            🛍️ Indian E-Commerce Analytics
+        </h1>
+
+        <p>
+            Interactive analysis of sales, profit,
+            customer orders and regional performance
+        </p>
+
     </div>
-
-    <h1>🛍️ Indian E-Commerce Analytics</h1>
-
-    <p>
-        Interactive analysis of sales, profit, customers,
-        orders and regional performance
-    </p>
-
-</div>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
 
 # =========================================================
-# SIDEBAR FILTERS
+# SIDEBAR
 # =========================================================
 
-st.sidebar.markdown("## 🎛️ Dashboard Controls")
+st.sidebar.markdown(
+    "## 🎛️ Dashboard Controls"
+)
 
 st.sidebar.caption(
-    "Use the filters below to explore the e-commerce dataset."
+    "Use the filters below to explore the dataset."
 )
 
 st.sidebar.markdown("---")
 
 
 states = sorted(
-    df["State"].dropna().unique().tolist()
+    df["State"]
+    .dropna()
+    .unique()
+    .tolist()
 )
 
 categories = sorted(
-    df["Category"].dropna().unique().tolist()
+    df["Category"]
+    .dropna()
+    .unique()
+    .tolist()
 )
 
 statuses = sorted(
-    df["Order_Status"].dropna().unique().tolist()
+    df["Order_Status"]
+    .dropna()
+    .unique()
+    .tolist()
 )
 
 
@@ -416,7 +423,7 @@ selected_statuses = st.sidebar.multiselect(
     "🚚 Order Status",
     statuses,
     default=statuses,
-    help="Filter by delivery/order status."
+    help="Select order status."
 )
 
 
@@ -434,11 +441,13 @@ date_range = st.sidebar.date_input(
 
 if isinstance(date_range, (tuple, list)) and len(date_range) == 2:
 
-    start_date, end_date = date_range
+    start_date = date_range[0]
+    end_date = date_range[1]
 
 else:
 
-    start_date, end_date = min_date, max_date
+    start_date = min_date
+    end_date = max_date
 
 
 # =========================================================
@@ -455,6 +464,20 @@ filtered = df[
 
 
 # =========================================================
+# EMPTY DATA CHECK
+# =========================================================
+
+if filtered.empty:
+
+    st.warning(
+        "No records match the selected filters. "
+        "Please broaden your filters."
+    )
+
+    st.stop()
+
+
+# =========================================================
 # KPI CALCULATIONS
 # =========================================================
 
@@ -468,74 +491,68 @@ total_quantity = filtered["Quantity"].sum()
 
 avg_order_value = (
     total_sales / total_orders
-    if total_orders
+    if total_orders > 0
     else 0
 )
 
 profit_margin = (
     total_profit / total_sales * 100
-    if total_sales
+    if total_sales > 0
     else 0
 )
 
 delivered_pct = (
-    filtered["Order_Status"].eq("Delivered").mean() * 100
-    if len(filtered)
-    else 0
+    filtered["Order_Status"]
+    .eq("Delivered")
+    .mean() * 100
 )
 
 
 # =========================================================
-# KPI CARDS
+# KPI SECTION
 # =========================================================
 
 st.markdown(
-    '<div class="section-title">📈 Key Performance Indicators</div>',
+    '<div class="section-title">'
+    '📈 Key Performance Indicators'
+    '</div>',
     unsafe_allow_html=True
 )
+
 
 kpi_cols = st.columns(5)
 
 
 kpis = [
-
     (
         "Total Sales",
         f"₹{total_sales:,.0f}",
         "Revenue generated"
     ),
-
     (
         "Total Profit",
         f"₹{total_profit:,.0f}",
         "Net profit"
     ),
-
     (
         "Total Orders",
         f"{total_orders:,}",
         "Unique orders"
     ),
-
     (
         "Quantity Sold",
         f"{total_quantity:,}",
         "Units sold"
     ),
-
     (
         "Profit Margin",
         f"{profit_margin:.2f}%",
         "Profit / Sales"
     )
-
 ]
 
 
-for col, (label, value, note) in zip(
-    kpi_cols,
-    kpis
-):
+for col, (label, value, note) in zip(kpi_cols, kpis):
 
     with col:
 
@@ -562,20 +579,6 @@ for col, (label, value, note) in zip(
 
 
 st.markdown("<br>", unsafe_allow_html=True)
-
-
-# =========================================================
-# EMPTY DATA CHECK
-# =========================================================
-
-if filtered.empty:
-
-    st.warning(
-        "No records match the selected filters. "
-        "Please broaden your filters."
-    )
-
-    st.stop()
 
 
 # =========================================================
@@ -627,7 +630,10 @@ category_profit = (
 
 state_sales = (
     filtered
-    .groupby("State", as_index=False)
+    .groupby(
+        "State",
+        as_index=False
+    )
     .agg(
         Sales_INR=("Sales_INR", "sum"),
         Profit_INR=("Profit_INR", "sum")
@@ -683,24 +689,14 @@ top_products = (
 
 
 # =========================================================
-# PLOTLY THEME
+# PLOTLY FORMATTING FUNCTION
 # =========================================================
-
-plot_bg = "rgba(0,0,0,0)"
-paper_bg = "rgba(0,0,0,0)"
-
 
 def polish(fig, height=360):
 
     fig.update_layout(
-
         height=height,
-
         template="plotly_white",
-
-        paper_bgcolor=paper_bg,
-
-        plot_bgcolor=plot_bg,
 
         font=dict(
             family="Arial",
@@ -756,7 +752,7 @@ tab1, tab2, tab3 = st.tabs(
 
 
 # =========================================================
-# TAB 1 — OVERVIEW
+# TAB 1 - OVERVIEW
 # =========================================================
 
 with tab1:
@@ -778,6 +774,10 @@ with tab1:
 
     col1, col2 = st.columns(2)
 
+
+    # -----------------------------------------------------
+    # MONTHLY SALES
+    # -----------------------------------------------------
 
     with col1:
 
@@ -805,6 +805,10 @@ with tab1:
         )
 
 
+    # -----------------------------------------------------
+    # CATEGORY SALES
+    # -----------------------------------------------------
+
     with col2:
 
         fig_category = px.bar(
@@ -829,6 +833,10 @@ with tab1:
     col1, col2 = st.columns(2)
 
 
+    # -----------------------------------------------------
+    # STATE SALES
+    # -----------------------------------------------------
+
     with col1:
 
         fig_state = px.bar(
@@ -843,8 +851,7 @@ with tab1:
 
         fig_state.update_layout(
             yaxis={
-                "categoryorder":
-                "total ascending"
+                "categoryorder": "total ascending"
             }
         )
 
@@ -853,6 +860,10 @@ with tab1:
             use_container_width=True
         )
 
+
+    # -----------------------------------------------------
+    # CATEGORY PROFIT
+    # -----------------------------------------------------
 
     with col2:
 
@@ -876,7 +887,7 @@ with tab1:
 
 
 # =========================================================
-# TAB 2 — PRODUCTS & ORDERS
+# TAB 2 - PRODUCTS & ORDERS
 # =========================================================
 
 with tab2:
@@ -890,7 +901,7 @@ with tab2:
 
     st.markdown(
         '<div class="section-subtitle">'
-        'Understand customer payment preferences, order status '
+        'Understand payment preferences, order status '
         'and product-level performance.'
         '</div>',
         unsafe_allow_html=True
@@ -899,6 +910,10 @@ with tab2:
 
     col1, col2 = st.columns(2)
 
+
+    # -----------------------------------------------------
+    # PAYMENT METHOD
+    # -----------------------------------------------------
 
     with col1:
 
@@ -921,6 +936,10 @@ with tab2:
         )
 
 
+    # -----------------------------------------------------
+    # ORDER STATUS
+    # -----------------------------------------------------
+
     with col2:
 
         fig_status = px.pie(
@@ -941,6 +960,10 @@ with tab2:
             use_container_width=True
         )
 
+
+    # -----------------------------------------------------
+    # QUANTITY VS SALES
+    # -----------------------------------------------------
 
     fig_scatter = px.scatter(
         filtered,
@@ -971,6 +994,10 @@ with tab2:
     )
 
 
+    # -----------------------------------------------------
+    # TOP PRODUCTS
+    # -----------------------------------------------------
+
     st.markdown(
         '<div class="section-title">'
         'Top 10 Product Segments'
@@ -984,13 +1011,17 @@ with tab2:
 
     display_products["Sales_INR"] = (
         display_products["Sales_INR"]
-        .map(lambda x: f"₹{x:,.0f}")
+        .map(
+            lambda x: f"₹{x:,.0f}"
+        )
     )
 
 
     display_products["Profit_INR"] = (
         display_products["Profit_INR"]
-        .map(lambda x: f"₹{x:,.0f}")
+        .map(
+            lambda x: f"₹{x:,.0f}"
+        )
     )
 
 
@@ -1002,9 +1033,5 @@ with tab2:
 
 
 # =========================================================
-# TAB 3 — BUSINESS INSIGHTS
-# =========================================================
-
-with tab3:
-
-    st.markdown(
+# TAB 3 - BUSINESS INSIGHTS
+# =====================================
