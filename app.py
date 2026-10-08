@@ -13,6 +13,9 @@ st.set_page_config(
    MAIN DASHBOARD BACKGROUND
    ===================================================== */
 
+       st.markdown("""
+<style>
+
 html, body, [data-testid="stAppViewContainer"] {
     background: linear-gradient(
         135deg,
