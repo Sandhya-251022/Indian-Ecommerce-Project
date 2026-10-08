@@ -273,30 +273,17 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# -----------------------------
-# DATE
-# -----------------------------
-
-min_date = df["Order_Date"].min().date()
-max_date = df["Order_Date"].max().date()
-
-date_range = st.sidebar.date_input(
-    "📅 Order Date",
-    value=(min_date, max_date),
-    min_value=min_date,
-    max_value=max_date,
-    format="DD/MM/YYYY"
+st.markdown(
+    f"""
+    <div class="info-strip">
+        📅 <b>Selected period:</b>
+        {start_date.strftime("%d %B %Y")} → {end_date.strftime("%d %B %Y")}
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        📊 <b>Records analysed:</b> {len(filtered):,}
+    </div>
+    """,
+    unsafe_allow_html=True
 )
-
-if isinstance(date_range, tuple) and len(date_range) == 2:
-
-    start_date = date_range[0]
-    end_date = date_range[1]
-
-else:
-
-    start_date = min_date
-    end_date = max_date
 
 # =========================================================
 # KPI
