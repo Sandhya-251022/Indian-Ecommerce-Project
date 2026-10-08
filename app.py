@@ -12,11 +12,13 @@ st.set_page_config(
 # =========================================================
 # DASHBOARD BACKGROUND & DESIGN
 # =========================================================
-
 st.markdown("""
 <style>
 
-/* MAIN DASHBOARD BACKGROUND */
+/* =====================================================
+   MAIN DASHBOARD BACKGROUND
+   ===================================================== */
+
 html, body, [data-testid="stAppViewContainer"] {
     background: linear-gradient(
         135deg,
@@ -39,8 +41,7 @@ html, body, [data-testid="stAppViewContainer"] {
     background: transparent !important;
 }
 
-
-/* MAIN CONTENT */
+/* Main content */
 .main {
     background: transparent !important;
 }
@@ -51,7 +52,10 @@ html, body, [data-testid="stAppViewContainer"] {
 }
 
 
-/* TITLE */
+/* =====================================================
+   TITLE
+   ===================================================== */
+
 h1 {
     color: #FFFFFF !important;
     font-weight: 800 !important;
@@ -62,14 +66,27 @@ h2, h3 {
     color: #FFFFFF !important;
 }
 
-
-/* CAPTION */
 .stCaption {
     color: #D5E5F5 !important;
 }
 
 
-/* SIDEBAR */
+/* =====================================================
+   NORMAL TEXT
+   ===================================================== */
+
+.stMarkdown,
+.stText,
+p,
+label {
+    color: #EAF4FF;
+}
+
+
+/* =====================================================
+   SIDEBAR
+   ===================================================== */
+
 section[data-testid="stSidebar"] {
     background: linear-gradient(
         180deg,
@@ -92,9 +109,12 @@ section[data-testid="stSidebar"] p {
 }
 
 
-/* SIDEBAR SELECT BOX */
+/* =====================================================
+   SIDEBAR SELECT BOXES
+   ===================================================== */
+
 section[data-testid="stSidebar"] div[data-baseweb="select"] > div {
-    background-color: #F1F6FA !important;
+    background-color: #FFFFFF !important;
     color: #111111 !important;
     border-radius: 8px !important;
 }
@@ -104,15 +124,18 @@ section[data-testid="stSidebar"] div[data-baseweb="select"] span {
 }
 
 
-/* DATE INPUT */
+/* =====================================================
+   DATE INPUT
+   ===================================================== */
+
 section[data-testid="stSidebar"] div[data-baseweb="input"] {
-    background-color: #F1F6FA !important;
+    background-color: #FFFFFF !important;
     border-radius: 10px !important;
 }
 
 section[data-testid="stSidebar"] div[data-baseweb="input"] input {
     color: #111111 !important;
-    background-color: #F1F6FA !important;
+    background-color: #FFFFFF !important;
 }
 
 section[data-testid="stSidebar"] div[data-baseweb="input"] input::placeholder {
@@ -124,12 +147,15 @@ section[data-testid="stSidebar"] div[data-baseweb="input"] svg {
 }
 
 
-/* KPI CARDS - LIGHT BLUE */
+/* =====================================================
+   METRIC CARDS
+   ===================================================== */
+
 div[data-testid="metric-container"] {
-    background: #EAF3F8 !important;
+    background: #FFFFFF !important;
     border-radius: 16px !important;
     padding: 18px !important;
-    border: 1px solid #C8DCE8 !important;
+    border: 1px solid #D9E8F5 !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
@@ -143,52 +169,75 @@ div[data-testid="metric-container"] [data-testid="stMetricValue"] {
     font-weight: 700 !important;
 }
 
+div[data-testid="metric-container"] [data-testid="stMetricDelta"] {
+    color: #234E70 !important;
+}
 
-/* CHART CARDS - LIGHT BLUE */
+
+/* =====================================================
+   CHART CARDS
+   ===================================================== */
+
 div[data-testid="stPlotlyChart"] {
-    background: #EAF3F8 !important;
+    background: #FFFFFF !important;
     border-radius: 18px !important;
     padding: 10px !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid #C8DCE8 !important;
+    border: 1px solid #D9E8F5 !important;
 }
 
 
-/* DATAFRAME - LIGHT BLUE */
+/* =====================================================
+   DATAFRAME
+   ===================================================== */
+
 div[data-testid="stDataFrame"] {
-    background: #EAF3F8 !important;
+    background: #FFFFFF !important;
     border-radius: 15px !important;
     padding: 8px !important;
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid #C8DCE8 !important;
 }
 
 
-/* INFO BOXES */
+/* =====================================================
+   INFO BOXES
+   ===================================================== */
+
 div[data-testid="stAlert"] {
     border-radius: 12px !important;
 }
 
 
-/* DIVIDER */
+/* =====================================================
+   DIVIDER
+   ===================================================== */
+
 hr {
     border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 
-/* BUTTONS */
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
 button {
     border-radius: 8px !important;
 }
 
 
-/* FOOTER */
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
 footer {
     visibility: hidden;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
+
 # =========================================================
 # LOAD DATA
 # =========================================================
