@@ -15,148 +15,197 @@ st.set_page_config(
 )
 
 # =========================================================
-# PROFESSIONAL CUSTOM CSS
+# PROFESSIONAL CSS
 # =========================================================
 
 st.markdown("""
 <style>
 
-/* ---------- Main Background ---------- */
+/* =====================================================
+   MAIN PAGE
+===================================================== */
 
 .stApp {
     background-color: #F5F7FB;
 }
 
-/* ---------- Main Content ---------- */
-
 .block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.3rem;
+    padding-bottom: 0.8rem;
     max-width: 1500px;
 }
 
-/* ---------- Title ---------- */
 
-.main-title {
-    font-size: 38px;
-    font-weight: 800;
-    color: #14213D;
-    margin-bottom: 5px;
-}
-
-.subtitle {
-    font-size: 16px;
-    color: #64748B;
-    margin-bottom: 25px;
-}
-
-/* ---------- Sidebar ---------- */
+/* =====================================================
+   SIDEBAR
+===================================================== */
 
 section[data-testid="stSidebar"] {
     background-color: #14213D;
 }
 
-section[data-testid="stSidebar"] * {
+/* Only text elements - DO NOT style every sidebar element */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] p {
     color: white !important;
 }
 
-section[data-testid="stSidebar"] .stMultiSelect div[data-baseweb="select"] {
-    background-color: #1F3154;
-    border-radius: 8px;
+/* Sidebar header */
+
+.sidebar-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 15px;
 }
 
-section[data-testid="stSidebar"] input {
-    color: #14213D !important;
+/* Sidebar filter spacing */
+
+section[data-testid="stSidebar"] .stMultiSelect {
+    margin-bottom: 5px;
 }
 
-/* ---------- KPI Cards ---------- */
+section[data-testid="stSidebar"] .stDateInput {
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.main-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #14213D;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #64748B;
+    margin-bottom: 14px;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+    font-size: 20px;
+    font-weight: 750;
+    color: #14213D;
+    margin-top: 12px;
+    margin-bottom: 7px;
+}
+
+
+/* =====================================================
+   KPI CARDS
+===================================================== */
 
 .kpi-card {
-    background: white;
-    padding: 20px 22px;
-    border-radius: 14px;
+    background: #FFFFFF;
+    padding: 14px 17px;
+    border-radius: 12px;
     border: 1px solid #E2E8F0;
-    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
-    min-height: 125px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    min-height: 100px;
+}
+
+.kpi-icon {
+    font-size: 22px;
+    margin-bottom: 2px;
 }
 
 .kpi-title {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
     color: #64748B;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    letter-spacing: 0.4px;
 }
 
 .kpi-value {
-    font-size: 27px;
+    font-size: 22px;
     font-weight: 800;
     color: #14213D;
 }
 
-.kpi-icon {
-    font-size: 25px;
-    margin-bottom: 5px;
+
+/* =====================================================
+   CHART SPACING
+===================================================== */
+
+div[data-testid="stPlotlyChart"] {
+    margin-top: -4px;
+    margin-bottom: -7px;
 }
 
-/* ---------- Section Headers ---------- */
 
-.section-title {
-    font-size: 22px;
-    font-weight: 750;
-    color: #14213D;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-/* ---------- Insight Cards ---------- */
-
-.insight-card {
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    border-left: 5px solid #2563EB;
-    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
-    min-height: 90px;
-}
-
-.insight-title {
-    font-size: 13px;
-    color: #64748B;
-    font-weight: 600;
-}
-
-.insight-value {
-    font-size: 18px;
-    color: #14213D;
-    font-weight: 750;
-    margin-top: 5px;
-}
-
-/* ---------- Footer ---------- */
-
-.footer {
-    text-align: center;
-    color: #64748B;
-    font-size: 13px;
-    padding: 20px;
-}
-
-/* ---------- Dataframe ---------- */
+/* =====================================================
+   DATAFRAME
+===================================================== */
 
 [data-testid="stDataFrame"] {
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     border: 1px solid #E2E8F0;
 }
 
-/* ---------- Buttons ---------- */
 
-.stButton > button {
-    border-radius: 8px;
-    border: none;
-    background-color: #2563EB;
-    color: white;
-    font-weight: 600;
+/* =====================================================
+   INSIGHT CARDS
+===================================================== */
+
+.insight-card {
+    background: #FFFFFF;
+    padding: 13px;
+    border-radius: 10px;
+    border-left: 4px solid #2563EB;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+    min-height: 72px;
+}
+
+.insight-title {
+    font-size: 11px;
+    color: #64748B;
+    font-weight: 700;
+}
+
+.insight-value {
+    font-size: 16px;
+    color: #14213D;
+    font-weight: 750;
+    margin-top: 4px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    text-align: center;
+    color: #64748B;
+    font-size: 12px;
+    padding: 8px;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 </style>
@@ -169,11 +218,16 @@ section[data-testid="stSidebar"] input {
 
 @st.cache_data
 def load_data():
+
     data = pd.read_csv(
-        Path(__file__).parent / "Indian_Ecommerce_Sales_Analysis_Dataset.csv"
+        Path(__file__).parent /
+        "Indian_Ecommerce_Sales_Analysis_Dataset.csv"
     )
 
-    data["Order_Date"] = pd.to_datetime(data["Order_Date"])
+    data["Order_Date"] = pd.to_datetime(
+        data["Order_Date"],
+        errors="coerce"
+    )
 
     return data
 
@@ -199,32 +253,53 @@ st.markdown(
 
 
 # =========================================================
-# SIDEBAR FILTERS
+# SIDEBAR
 # =========================================================
 
 st.sidebar.markdown(
-    "## 🔎 Dashboard Filters"
+    '<div class="sidebar-title">🔎 Dashboard Filters</div>',
+    unsafe_allow_html=True
 )
 
 st.sidebar.markdown("---")
 
+
+# -----------------------------
+# STATE
+# -----------------------------
+
 selected_states = st.sidebar.multiselect(
     "📍 State",
-    sorted(df["State"].unique()),
-    default=sorted(df["State"].unique())
+    options=sorted(df["State"].dropna().unique()),
+    default=sorted(df["State"].dropna().unique())
 )
+
+
+# -----------------------------
+# CATEGORY
+# -----------------------------
 
 selected_categories = st.sidebar.multiselect(
     "🛍️ Category",
-    sorted(df["Category"].unique()),
-    default=sorted(df["Category"].unique())
+    options=sorted(df["Category"].dropna().unique()),
+    default=sorted(df["Category"].dropna().unique())
 )
+
+
+# -----------------------------
+# ORDER STATUS
+# -----------------------------
 
 selected_statuses = st.sidebar.multiselect(
     "📦 Order Status",
-    sorted(df["Order_Status"].unique()),
-    default=sorted(df["Order_Status"].unique())
+    options=sorted(df["Order_Status"].dropna().unique()),
+    default=sorted(df["Order_Status"].dropna().unique())
 )
+
+
+# -----------------------------
+# DATE
+# -----------------------------
 
 min_date = df["Order_Date"].min().date()
 max_date = df["Order_Date"].max().date()
@@ -233,14 +308,19 @@ date_range = st.sidebar.date_input(
     "📅 Order Date",
     value=(min_date, max_date),
     min_value=min_date,
-    max_value=max_date
+    max_value=max_date,
+    format="DD/MM/YYYY"
 )
 
-start_date, end_date = (
-    date_range
-    if isinstance(date_range, tuple) and len(date_range) == 2
-    else (min_date, max_date)
-)
+if isinstance(date_range, tuple) and len(date_range) == 2:
+
+    start_date = date_range[0]
+    end_date = date_range[1]
+
+else:
+
+    start_date = min_date
+    end_date = max_date
 
 
 # =========================================================
@@ -261,25 +341,28 @@ filtered = df[
 # =========================================================
 
 total_sales = filtered["Sales_INR"].sum()
+
 total_profit = filtered["Profit_INR"].sum()
+
 total_orders = filtered["Order_ID"].nunique()
+
 total_quantity = filtered["Quantity"].sum()
 
 avg_order_value = (
     total_sales / total_orders
-    if total_orders
+    if total_orders > 0
     else 0
 )
 
 profit_margin = (
     total_profit / total_sales * 100
-    if total_sales
+    if total_sales > 0
     else 0
 )
 
 
 # =========================================================
-# KPI CARDS
+# BUSINESS OVERVIEW
 # =========================================================
 
 st.markdown(
@@ -289,7 +372,9 @@ st.markdown(
 
 c1, c2, c3, c4, c5 = st.columns(5)
 
+
 with c1:
+
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -301,7 +386,9 @@ with c1:
         unsafe_allow_html=True
     )
 
+
 with c2:
+
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -313,7 +400,9 @@ with c2:
         unsafe_allow_html=True
     )
 
+
 with c3:
+
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -325,7 +414,9 @@ with c3:
         unsafe_allow_html=True
     )
 
+
 with c4:
+
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -337,7 +428,9 @@ with c4:
         unsafe_allow_html=True
     )
 
+
 with c5:
+
     st.markdown(
         f"""
         <div class="kpi-card">
@@ -350,14 +443,9 @@ with c5:
     )
 
 
-st.markdown("<br>", unsafe_allow_html=True)
-
-
 # =========================================================
-# COMMON PLOTLY DESIGN
+# PROFESSIONAL COLOR PALETTE
 # =========================================================
-
-plot_template = "plotly_white"
 
 professional_colors = [
     "#2563EB",
@@ -377,12 +465,18 @@ professional_colors = [
 
 monthly = (
     filtered
-    .groupby(filtered["Order_Date"].dt.to_period("M"))["Sales_INR"]
+    .groupby(
+        filtered["Order_Date"].dt.to_period("M")
+    )["Sales_INR"]
     .sum()
     .reset_index()
 )
 
-monthly["Month"] = monthly["Order_Date"].dt.strftime("%b %Y")
+monthly["Month"] = (
+    monthly["Order_Date"]
+    .dt.strftime("%b %Y")
+)
+
 
 fig_month = px.line(
     monthly,
@@ -393,17 +487,30 @@ fig_month = px.line(
 )
 
 fig_month.update_traces(
-    line=dict(width=3),
-    marker=dict(size=8)
+    line=dict(
+        color="#2563EB",
+        width=3
+    ),
+    marker=dict(
+        size=8
+    )
 )
 
 fig_month.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
     xaxis_title="Month",
     yaxis_title="Sales (₹)",
     hovermode="x unified",
-    margin=dict(l=20, r=20, t=60, b=20)
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
 
@@ -413,10 +520,17 @@ fig_month.update_layout(
 
 category_sales = (
     filtered
-    .groupby("Category", as_index=False)["Sales_INR"]
+    .groupby(
+        "Category",
+        as_index=False
+    )["Sales_INR"]
     .sum()
-    .sort_values("Sales_INR", ascending=False)
+    .sort_values(
+        "Sales_INR",
+        ascending=False
+    )
 )
+
 
 fig_category = px.bar(
     category_sales,
@@ -429,26 +543,36 @@ fig_category = px.bar(
 )
 
 fig_category.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
     showlegend=False,
-    margin=dict(l=20, r=20, t=60, b=20)
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
 
 # =========================================================
-# SALES TREND + CATEGORY
+# SALES CHARTS
 # =========================================================
 
 left, right = st.columns(2)
 
 with left:
+
     st.plotly_chart(
         fig_month,
         use_container_width=True
     )
 
 with right:
+
     st.plotly_chart(
         fig_category,
         use_container_width=True
@@ -466,8 +590,12 @@ state_sales = (
         Sales_INR=("Sales_INR", "sum"),
         Profit_INR=("Profit_INR", "sum")
     )
-    .sort_values("Sales_INR", ascending=False)
+    .sort_values(
+        "Sales_INR",
+        ascending=False
+    )
 )
+
 
 fig_state = px.bar(
     state_sales.head(10),
@@ -478,11 +606,25 @@ fig_state = px.bar(
     text_auto=".2s"
 )
 
+fig_state.update_traces(
+    marker_color="#2563EB"
+)
+
 fig_state.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
-    yaxis={"categoryorder": "total ascending"},
-    margin=dict(l=20, r=20, t=60, b=20)
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
+    yaxis={
+        "categoryorder": "total ascending"
+    },
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
 
@@ -492,10 +634,17 @@ fig_state.update_layout(
 
 category_profit = (
     filtered
-    .groupby("Category", as_index=False)["Profit_INR"]
+    .groupby(
+        "Category",
+        as_index=False
+    )["Profit_INR"]
     .sum()
-    .sort_values("Profit_INR", ascending=False)
+    .sort_values(
+        "Profit_INR",
+        ascending=False
+    )
 )
+
 
 fig_profit = px.bar(
     category_profit,
@@ -508,10 +657,18 @@ fig_profit = px.bar(
 )
 
 fig_profit.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
     showlegend=False,
-    margin=dict(l=20, r=20, t=60, b=20)
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
 
@@ -522,12 +679,14 @@ fig_profit.update_layout(
 left, right = st.columns(2)
 
 with left:
+
     st.plotly_chart(
         fig_state,
         use_container_width=True
     )
 
 with right:
+
     st.plotly_chart(
         fig_profit,
         use_container_width=True
@@ -535,14 +694,19 @@ with right:
 
 
 # =========================================================
-# PAYMENT & STATUS
+# PAYMENT MODE
 # =========================================================
 
-payment = filtered["Payment_Mode"].value_counts().reset_index()
-payment.columns = ["Payment_Mode", "Count"]
+payment = (
+    filtered["Payment_Mode"]
+    .value_counts()
+    .reset_index()
+)
 
-status = filtered["Order_Status"].value_counts().reset_index()
-status.columns = ["Order_Status", "Count"]
+payment.columns = [
+    "Payment_Mode",
+    "Count"
+]
 
 
 payment_fig = px.pie(
@@ -555,10 +719,34 @@ payment_fig = px.pie(
 )
 
 payment_fig.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
-    margin=dict(l=20, r=20, t=60, b=20)
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
+
+
+# =========================================================
+# ORDER STATUS
+# =========================================================
+
+status = (
+    filtered["Order_Status"]
+    .value_counts()
+    .reset_index()
+)
+
+status.columns = [
+    "Order_Status",
+    "Count"
+]
 
 
 status_fig = px.pie(
@@ -571,21 +759,35 @@ status_fig = px.pie(
 )
 
 status_fig.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
-    margin=dict(l=20, r=20, t=60, b=20)
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
+
+# =========================================================
+# PAYMENT + STATUS
+# =========================================================
 
 left, right = st.columns(2)
 
 with left:
+
     st.plotly_chart(
         payment_fig,
         use_container_width=True
     )
 
 with right:
+
     st.plotly_chart(
         status_fig,
         use_container_width=True
@@ -611,9 +813,17 @@ fig_scatter = px.scatter(
 )
 
 fig_scatter.update_layout(
-    template=plot_template,
-    title_font=dict(size=18, color="#14213D"),
-    margin=dict(l=20, r=20, t=60, b=20)
+    template="plotly_white",
+    title_font=dict(
+        size=18,
+        color="#14213D"
+    ),
+    margin=dict(
+        l=20,
+        r=20,
+        t=55,
+        b=20
+    )
 )
 
 st.plotly_chart(
@@ -623,25 +833,33 @@ st.plotly_chart(
 
 
 # =========================================================
-# TOP PRODUCTS
+# TOP 10 PRODUCTS
 # =========================================================
 
 top_products = (
     filtered
-    .groupby("Sub_Category", as_index=False)
+    .groupby(
+        "Sub_Category",
+        as_index=False
+    )
     .agg(
         Sales_INR=("Sales_INR", "sum"),
         Profit_INR=("Profit_INR", "sum"),
         Quantity=("Quantity", "sum")
     )
-    .sort_values("Sales_INR", ascending=False)
+    .sort_values(
+        "Sales_INR",
+        ascending=False
+    )
     .head(10)
 )
+
 
 st.markdown(
     '<div class="section-title">⭐ Top 10 Products</div>',
     unsafe_allow_html=True
 )
+
 
 st.dataframe(
     top_products,
@@ -659,71 +877,111 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+
 if not filtered.empty:
 
     best_category = category_sales.iloc[0]["Category"]
+
     best_state = state_sales.iloc[0]["State"]
+
     best_product = top_products.iloc[0]["Sub_Category"]
 
     delivered_pct = (
-        filtered["Order_Status"].eq("Delivered").mean()
+        filtered["Order_Status"]
+        .eq("Delivered")
+        .mean()
     ) * 100
 
     cancelled_pct = (
-        filtered["Order_Status"].eq("Cancelled").mean()
+        filtered["Order_Status"]
+        .eq("Cancelled")
+        .mean()
     ) * 100
+
+
+    # -----------------------------------------------------
+    # INSIGHT CARDS
+    # -----------------------------------------------------
 
     a, b, c, d = st.columns(4)
 
+
     with a:
+
         st.markdown(
             f"""
             <div class="insight-card">
-                <div class="insight-title">TOP CATEGORY</div>
-                <div class="insight-value">🛍️ {best_category}</div>
+                <div class="insight-title">
+                    TOP CATEGORY
+                </div>
+                <div class="insight-value">
+                    🛍️ {best_category}
+                </div>
             </div>
             """,
             unsafe_allow_html=True
         )
+
 
     with b:
+
         st.markdown(
             f"""
             <div class="insight-card">
-                <div class="insight-title">TOP STATE</div>
-                <div class="insight-value">📍 {best_state}</div>
+                <div class="insight-title">
+                    TOP STATE
+                </div>
+                <div class="insight-value">
+                    📍 {best_state}
+                </div>
             </div>
             """,
             unsafe_allow_html=True
         )
+
 
     with c:
+
         st.markdown(
             f"""
             <div class="insight-card">
-                <div class="insight-title">TOP PRODUCT</div>
-                <div class="insight-value">⭐ {best_product}</div>
+                <div class="insight-title">
+                    TOP PRODUCT
+                </div>
+                <div class="insight-value">
+                    ⭐ {best_product}
+                </div>
             </div>
             """,
             unsafe_allow_html=True
         )
+
 
     with d:
+
         st.markdown(
             f"""
             <div class="insight-card">
-                <div class="insight-title">DELIVERED ORDERS</div>
-                <div class="insight-value">📦 {delivered_pct:.1f}%</div>
+                <div class="insight-title">
+                    DELIVERED ORDERS
+                </div>
+                <div class="insight-value">
+                    📦 {delivered_pct:.1f}%
+                </div>
             </div>
             """,
             unsafe_allow_html=True
         )
 
-    st.markdown("<br>", unsafe_allow_html=True)
 
-    insight_col1, insight_col2 = st.columns(2)
+    # -----------------------------------------------------
+    # DETAILED INSIGHTS
+    # -----------------------------------------------------
 
-    with insight_col1:
+    col1, col2 = st.columns(2)
+
+
+    with col1:
 
         st.info(
             f"💰 **Total Sales:** ₹{total_sales:,.0f}\n\n"
@@ -731,13 +989,15 @@ if not filtered.empty:
             f"🧾 **Average Order Value:** ₹{avg_order_value:,.0f}"
         )
 
-    with insight_col2:
+
+    with col2:
 
         st.info(
             f"🎯 **Overall Profit Margin:** {profit_margin:.2f}%\n\n"
             f"📦 **Delivered Orders:** {delivered_pct:.1f}%\n\n"
             f"❌ **Cancelled Orders:** {cancelled_pct:.1f}%"
         )
+
 
 else:
 
@@ -757,8 +1017,7 @@ st.markdown(
     <div class="footer">
         🛒 <b>Indian E-Commerce Sales & Profit Analysis</b>
         <br>
-        Built with Python • Pandas • Plotly • Streamlit
+        Python • Pandas • Plotly • Streamlit
     </div>
     """,
-    unsafe_allow_html=True
-)
+    unsafe_allow_h
