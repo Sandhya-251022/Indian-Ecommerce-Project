@@ -258,7 +258,7 @@ df = load_data()
 # TITLE
 # =========================================================
 
-st.title("🛒 Indian E-Commerce Sales & Profit Dashboard")
+st.title("🛒 E-Commerce Sales Analytics Dashboard")
 
 st.caption(
     "Interactive analysis of sales, profit, products, customers and regional performance"
@@ -688,5 +688,5 @@ else:
 st.divider()
 
 st.caption(
-    "Indian E-Commerce Sales & Profit Analysis | Python + Pandas + Plotly + Streamlit"
+    "E-Commerce Sales Analysis Dashboard | Python + Pandas + Plotly + Streamlit"
 )
