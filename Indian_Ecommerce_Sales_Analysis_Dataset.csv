@@ -1344,10 +1344,10 @@ ORD101342,2024-05-06,Sanjay Mehta,Gujarat,Ahmedabad,Clothing,Saree,1,6480.74,0,6
 ORD101343,2024-01-11,Rohan Verma,Uttar Pradesh,Agra,Sports,Fitness Band,1,4646.95,10,4182.26,1157.2,UPI,Delivered,January,Q1,27.67
 ORD101344,2024-04-22,Rahul Kumar,Haryana,Faridabad,Electronics,Tablet,1,16186.61,5,15377.28,1998.15,Credit Card,Delivered,April,Q2,12.99
 ORD101345,2024-11-10,Isha Joshi,West Bengal,Durgapur,Clothing,T-Shirt,3,508.52,5,1449.28,311.66,Cash on Delivery,Delivered,November,Q4,21.5
-ORD101346,2024-02-07,Swati Kapoor,Uttar Pradesh,Lucknow,Clothing,Jeans,1,1297.3,15,1102.7,148.32,UPI,Cancelled,February,Q1,13.45
+ORD101346,2026-02-07,Swati Kapoor,Uttar Pradesh,Lucknow,Clothing,Jeans,1,1297.3,15,1102.7,148.32,UPI,Cancelled,February,Q1,13.45
 ORD101347,2024-10-03,Manish Jain,West Bengal,Kolkata,Electronics,Smartphone,2,28529.58,10,51353.24,7123.55,UPI,Delivered,October,Q4,13.87
 ORD101348,2024-12-26,Aarav Sharma,Karnataka,Mangaluru,Beauty,Skin Care Kit,1,3195.76,10,2876.18,870.43,Cash on Delivery,Returned,December,Q4,30.26
-ORD101349,2024-05-25,Swati Kapoor,Karnataka,Bengaluru,Electronics,Laptop,1,71439.48,15,60723.56,8405.35,UPI,Delivered,May,Q2,13.84
+ORD101349,2020-05-25,Swati Kapoor,Karnataka,Bengaluru,Electronics,Laptop,1,71439.48,15,60723.56,8405.35,UPI,Delivered,May,Q2,13.84
 ORD101350,2024-12-18,Arjun Patel,Uttar Pradesh,Lucknow,Beauty,Perfume,1,1701.99,5,1616.89,411.69,Credit Card,Delivered,December,Q4,25.46
 ORD101351,2024-03-18,Sanjay Mehta,Haryana,Faridabad,Clothing,Saree,1,4007.47,10,3606.72,909.99,Debit Card,Cancelled,March,Q1,25.23
 ORD101352,2024-05-28,Vikram Shah,Madhya Pradesh,Bhopal,Electronics,Laptop,3,81979.08,0,245937.24,34344.66,Debit Card,Delivered,May,Q2,13.96
@@ -1484,18 +1484,18 @@ ORD101482,2024-11-25,Swati Kapoor,Rajasthan,Jaipur,Clothing,Saree,2,5222.08,10,9
 ORD101483,2024-02-11,Priya Das,Telangana,Warangal,Sports,Cricket Bat,1,7515.09,5,7139.34,2012.08,Cash on Delivery,Delivered,February,Q1,28.18
 ORD101484,2024-09-28,Arjun Patel,Rajasthan,Udaipur,Beauty,Hair Dryer,4,1663.89,15,5657.23,1849.86,Credit Card,Delivered,September,Q3,32.7
 ORD101485,2024-01-13,Aditya Rao,Maharashtra,Pune,Electronics,Smart Watch,3,2229.83,5,6355.02,666.78,Credit Card,Delivered,January,Q1,10.49
-ORD101486,2024-05-10,Aditya Rao,Uttar Pradesh,Lucknow,Clothing,T-Shirt,1,667.05,5,633.7,106.78,Credit Card,Cancelled,May,Q2,16.85
+ORD101486,2023-05-10,Aditya Rao,Uttar Pradesh,Lucknow,Clothing,T-Shirt,1,667.05,5,633.7,106.78,Credit Card,Cancelled,May,Q2,16.85
 ORD101487,2024-11-14,Manish Jain,Rajasthan,Jaipur,Clothing,Saree,2,4798.72,15,8157.82,2496.75,UPI,Delivered,November,Q4,30.61
 ORD101488,2024-03-28,Kiran Yadav,Tamil Nadu,Coimbatore,Clothing,Jeans,1,1848.32,5,1755.9,413.44,Cash on Delivery,Cancelled,March,Q1,23.55
 ORD101489,2024-11-18,Divya Sahu,Madhya Pradesh,Indore,Home & Kitchen,Air Fryer,1,3870.16,15,3289.64,768.59,Net Banking,Shipped,November,Q4,23.36
 ORD101490,2024-07-19,Swati Kapoor,Odisha,Bhubaneswar,Electronics,Smart Watch,4,5618.61,10,20227.0,2693.43,UPI,Delivered,July,Q3,13.32
-ORD101491,2024-02-15,Swati Kapoor,Maharashtra,Pune,Electronics,Smart Watch,4,7239.82,10,26063.35,3491.71,Credit Card,Delivered,February,Q1,13.4
+ORD101491,2021-02-15,Swati Kapoor,Maharashtra,Pune,Electronics,Smart Watch,4,7239.82,10,26063.35,3491.71,Credit Card,Delivered,February,Q1,13.4
 ORD101492,2024-07-20,Aarav Sharma,Madhya Pradesh,Indore,Clothing,T-Shirt,4,1301.09,0,5204.36,1459.39,Credit Card,Delivered,July,Q3,28.04
 ORD101493,2024-06-22,Isha Joshi,Kerala,Kochi,Sports,Yoga Mat,4,1582.82,15,5381.59,1473.22,UPI,Shipped,June,Q2,27.38
 ORD101494,2024-06-10,Aarav Sharma,Maharashtra,Nagpur,Clothing,Kurta,3,2397.79,15,6114.36,1805.37,Cash on Delivery,Delivered,June,Q2,29.53
 ORD101495,2024-08-02,Priya Das,Maharashtra,Nagpur,Home & Kitchen,Air Fryer,1,8383.5,15,7125.98,1741.1,Debit Card,Cancelled,August,Q3,24.43
 ORD101496,2024-05-09,Akash Roy,Uttar Pradesh,Kanpur,Clothing,T-Shirt,2,417.83,10,752.09,80.31,Debit Card,Delivered,May,Q2,10.68
 ORD101497,2024-11-07,Kavya Nair,Tamil Nadu,Chennai,Beauty,Perfume,3,1646.41,15,4198.35,1507.53,UPI,Delivered,November,Q4,35.91
-ORD101498,2024-12-03,Manish Jain,Kerala,Kochi,Home & Kitchen,Bedsheet,2,1650.01,10,2970.02,600.99,Credit Card,Returned,December,Q4,20.24
+ORD101498,2025-12-03,Manish Jain,Kerala,Kochi,Home & Kitchen,Bedsheet,2,1650.01,10,2970.02,600.99,Credit Card,Returned,December,Q4,20.24
 ORD101499,2024-04-21,Swati Kapoor,Gujarat,Vadodara,Home & Kitchen,Cookware Set,1,2827.7,10,2544.93,447.89,Cash on Delivery,Delivered,April,Q2,17.6
 ORD101500,2024-09-26,Priya Das,Madhya Pradesh,Bhopal,Beauty,Hair Dryer,2,2195.77,10,3952.39,1335.5,Net Banking,Delivered,September,Q3,33.79
